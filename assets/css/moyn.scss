@@ -8,15 +8,20 @@ html, body {
 	background-color: black;
 	color: rgba(255, 255, 255, 0.3);
 	font-size: 12px;
+	box-sizing: border-box;
 }
-
 .moyn {
 	&__container {
 		position: relative;
+		min-height: 100vh;
+		box-sizing: border-box;
+		margin: auto;
+		padding: 0;
 	}
 
 	&__header {
-		padding-top: 32px;
+		padding-top: 24px;
+		box-sizing: border-box;
 
 		img {
 			width: 120px;
@@ -25,8 +30,16 @@ html, body {
 		}
 	}
 
+	&__footer {
+		text-align: right;
+		position: absolute;
+		bottom: 8px;
+		right: 16px;
+		box-sizing: border-box;
+	}
+
 	&__menu {
-		width: 50%;
+		width: 40%;
 		padding: 0;
 	}
 
@@ -37,6 +50,7 @@ html, body {
 		-webkit-transition: all 0.2s ease-in-out;
 		transition: all 0.2s ease-in-out;
 		cursor: pointer;
+		letter-spacing: 1px;
 
 		&.active {
 			margin-bottom: 24px;
@@ -53,8 +67,6 @@ html, body {
 			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 			display: block;
 			position: absolute;
-			left: 14px;
-			right: 14px;
 			margin-top: 20px;
 		}
 
@@ -66,18 +78,53 @@ html, body {
 	}
 
 	&__menu-content {
-		width: 50%;
+		width: 60%;
 		right: 0;
 		position: absolute;
 		text-align: center;
 		margin-top: 32px;
 		display: none;
 		cursor: default;
+		opacity: 0;
 	}
 
 	&__menu-item.active &__menu-content {
 		display: block;
-		animation: fadeIn 1s ease-in-out;
+		animation: fadeIn 1s ease-in-out forwards;
+		animation-delay: 1s;
+	}
+
+	&__content-nav {
+		width: 60%;
+		right: 0;
+		position: absolute;
+		text-align: center;
+		margin: auto;
+		margin-top: -8px;
+		display: none;
+		cursor: default;
+		opacity: 0;
+		flex-wrap: wrap;
+		float: right;
+		color: rgba(255, 255, 255, 0.3);
+
+		.nav-item {
+			padding: 0 16px;
+			cursor: pointer;
+			font-weight: 700;
+		}
+	
+		.nav-item.active,
+		.nav-item:hover {
+			color: rgba(255, 255, 255, 0.7);
+		}
+	}
+	
+	&__menu-item.active &__content-nav {
+		display: flex;
+		animation: fadeIn 1s ease-in-out forwards;
+		animation-delay: 1s;
+		font-size: 16px;
 	}
 
 	&__founders-img {
@@ -99,12 +146,14 @@ html, body {
 
 			.desc {
 				position: absolute;
-				width: 50px;
+				width: 100%;
 				height: 100%;
 				right: 0;
 				top: 0;
 				text-align: right;
 				display: none;
+				background: black;
+				padding-top: 16px;
 			}
 		}
 
@@ -124,51 +173,128 @@ html, body {
 
 			.desc {
 				position: absolute;
-				width: 50px;
+				width: 100%;
 				height: 100%;
 				left: 0;
 				top: 0;
 				text-align: left;
 				display: none;
+				background: black;
+				padding-top: 16px;
 			}
 		}
 
-		&--left:hover + &--right .desc {
-			display: block;
-			animation: fadeIn 1s ease-in-out;
-		}
+		// &--left:hover + &--right .desc {
+		// 	display: block;
+		// 	animation: fadeIn 1s ease-in-out;
+		// }
 
-		&--right:hover + &--left .desc {
-			display: block;
-			animation: fadeIn 1s ease-in-out;
-		}
+		// &--right:hover + &--left .desc {
+		// 	display: block;
+		// 	animation: fadeIn 1s ease-in-out;
+		// }
 	}
 
 	&__gallery {
-		width: 416px;
+		width: 100%;
+		max-width: 540px;
 		margin: auto;
+		animation: fadeIn 1s ease-in-out;		
 	}
 
-	&__thumb {
-		width: 200px;
-		height: 100px;
-		margin-right: 16px;
-		margin-bottom: 16px;
-		background-color: rgba(255, 255, 255, 0.8);
+	&__slider {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: none;
+		.overlay {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		.carousel {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50%;
+			
+			img {
+				height: auto;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
 	}
 }
 
+.med-thumb {
+	margin-bottom: 8px;
+	margin-right: 8px;
+	cursor: pointer;
+
+	&__image {
+		width: 100;
+		height: 100;
+		display: inline-block;
+		float: left;
+		content: "";
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	&__body {
+		min-width: 155px;
+		height: 100;
+		display: inline-block;
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 8px;
+		text-align: left;
+	}
+	
+	&__title {
+		margin-bottom: 8px;
+	}
+
+	&__desc {
+		color: rgba(255, 255, 255, 0.3);
+	}
+}
+
+.slick-slide {
+	margin-right: 8px;
+}
+
+.mb-8 {margin-bottom: 16px;}
+.mb-16 {margin-bottom: 16px;}
+.mb-24 {margin-bottom: 16px;}
+.ta-right {text-align: right}
+.ta-left {text-align: left}
+.ta-center {text-align: center}
+
+@media (min-width: 576px) {
+	.moyn__container {max-width: 540px;}	
+}
+
+@media (min-width: 1200px) {
+	.moyn__container {max-width: 1140px;}
+}
+
+
 @-webkit-keyframes slideRight {
   0% {width: 0;}
-  100% {width: 100%;}
+  100% {width: 100%}
 }
 
 @keyframes slideRight {
   0% {width: 0;}
-  100% {width: 100%;}
+  100% {width: 100%}
 }
-
-
 
 @-webkit-keyframes fadeIn {
   0% {opacity: 0;}
