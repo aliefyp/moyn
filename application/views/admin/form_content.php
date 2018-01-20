@@ -1,5 +1,5 @@
 <div class="row">
-    <form method="post" class="form-horizontal" action="<?php echo base_url();?>siswa/tambahSiswa">
+    <form method="post" class="form-horizontal" action="<?php echo base_url();?>input_content/submit_content" enctype="multipart/form-data">
     <div class="span7">
       <div class="widget">
 
@@ -12,7 +12,15 @@
                     <label class="control-label" for="project_name">Project Name</label>
                     <div class="controls">
                       <input type="text" class="span3" id="project_name" name="project_name" value="" placeholder="Project Name">
+                      <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo $project?>">
                     </div>    
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="project_type">Project Type</label>
+                    <div class="controls">
+                      <input type="text" name="project_type" id="project_type" placeholder="Project Type">
+                    </div>
                   </div>
 
                   <div class="control-group">                     
@@ -28,14 +36,11 @@
                                     
                   <div class="control-group">                     
                     <label class="control-label" for="project_img">Image</label>
-                    <div class="controls">
-                      <input type="file" name="Image">
+                    <div class="controls" id="img_area">
+                      <input type="file" name="fotos[]" multiple="multiple">
                     </div>
                     <div class="controls">
-                      <input type="file" name="Image">
-                    </div>
-                    <div class="controls">
-                      <a href="" class="btn btn-success">tambah</a>
+                      <a class="btn btn-success" id="btn_plus"><i class="icon-plus"></i></a>
                     </div>
                   </div>                   
                   
@@ -75,4 +80,7 @@
 </div>
 
 <script type="text/javascript">
+  $('#btn_plus').click(function(){
+    $('#img_area').append('<input type="file" name="fotos[]" multiple="multiple">');
+  });
 </script>
