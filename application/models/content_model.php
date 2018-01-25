@@ -16,4 +16,27 @@ class Content_model extends CI_Model {
 		$insert = $this->db->insert_batch($table_img,$upload_data);
         return $insert?true:false;
 	}
+
+	public function read_project($project_type) {
+		switch ($project_type) {
+			case "realized_project":
+				$table_name = "realized_project";
+				break;
+
+			case "unbuilt_project":
+				$table_name = "unbuilt_project";
+				break;
+
+			case "my_studio":
+				$table_name = "my_studio";
+				break;
+				
+			default:
+				return false;
+				break;
+		}
+
+		$data = $this->db->query("select * from ".$table_name);
+		return $data->result();
+	}
 }
