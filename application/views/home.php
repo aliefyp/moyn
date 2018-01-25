@@ -2,8 +2,8 @@
 
 <html>
 	<head>
-    	<meta charset = "utf-8"> 
-		<title>moyn</title>
+    <meta charset = "utf-8"> 
+		<title><?php echo $title ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/moyn.css">
@@ -16,7 +16,7 @@
 		<div class="container moyn__container">
 			<div class="moyn__header"><img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo"></div>
 			<ul class="moyn__menu">
-				<li class="moyn__menu-item" id="profile" onclick="onMenuClick(this)">PROFILE
+				<li class="moyn__menu-item" id="profile">PROFILE
 					<div class="moyn__menu-content">
 						<p>Established in 2018, moyn is an architectural design studio based on the countryside of central Java.<br />
 						the balance between spaces inside and outside, environment and architecture, human and architecture.<br />
@@ -45,218 +45,22 @@
 						</div>
 					</div>
 				</li>
-				<li class="moyn__menu-item" id="projects" onclick="onMenuClick(this)">PROJECTS
+				<li class="moyn__menu-item" id="projects">PROJECTS
 					<div class="moyn__content-nav justify-content-end">
-						<div class="nav-item gal-nav col" id="nav-unbuilt" >&ndash;</div>
-						<div class="nav-item gal-nav col" id="nav-studio" >0</div>
-						<div class="nav-item gal-nav col" id="nav-realized" >+</div>
+						<div class="proj-nav">
+							<div class="proj-nav__item" id="nav-unbuilt" >&ndash;</div>
+							<div class="proj-nav__item" id="nav-studio" >0</div>
+							<div class="proj-nav__item" id="nav-realized" >+</div>
+						</div>
 					</div>
 					<div class="moyn__menu-content">
-						<div class="moyn__gallery" id="gallery-unbuilt">
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-							<div class="med-thumb media">
-								<div class="med-thumb__image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="med-thumb__body media-body">
-									<div class="med-thumb__title">ASDSAD</div>
-									<div class="med-thumb__desc">asdsad</div>
-								</div>
-							</div>
-						</div>
-						<!-- <div class="moyn__gallery" id="gallery-studio">
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-						</div>
-						<div class="moyn__gallery" id="gallery-realized">
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-							<div class="moyn__thumb">
-								<div class="image" style="background-image: url('http://placehold.it/100x100')"></div>
-								<div class="content">
-									<div class="title">ASDSAD</div>
-									<div class="type">asdsad</div>
-								</div>
-							</div>
-						</div> -->
+						<!-- <div class="moyn__gallery" id="proj-gallery"></div> -->
+						<div class="proj-gallery" id="proj-gallery"></div>
+						<div class="proj-next" id="gallery-next">&gt;</div>
+						<div class="proj-prev" id="gallery-prev">&lt;</div>
 					</div>
 				</li>
-				<li class="moyn__menu-item" id="contact" onclick="onMenuClick(this)">CONTACT
+				<li class="moyn__menu-item" id="contact">CONTACT
 					<div class="moyn__menu-content ta-right">
 						<div class="mb-16">
 							<div>Jl.Carikan Gondosuli</div>
@@ -270,8 +74,8 @@
 						</div>
 					</div>
 				</li>
-				<li class="moyn__menu-item" id="news" onclick="onMenuClick(this)">NEWS</li>
-				<li class="moyn__menu-item" id="shop" onclick="onMenuClick(this)">SHOP
+				<li class="moyn__menu-item" id="news">NEWS</li>
+				<li class="moyn__menu-item" id="shop">SHOP
 					<div class="moyn__menu-content">
 						<div class="moyn__gallery" id="gallery-unbuilt">
 							<div class="med-thumb media">
@@ -299,6 +103,9 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			var baseUrl = "<?php echo base_url(); ?>"
+		</script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/moyn.js"></script>
