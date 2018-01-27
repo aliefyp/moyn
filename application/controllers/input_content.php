@@ -23,9 +23,17 @@ class Input_content extends MY_Controller {
 				break;
 			
 			default:
-				$data['_title'] = 'Input Project';
+				$data['_title'] = 'Input Realized Project';
 				$data['project'] = 1;
 				break;
+		}
+
+		if($this->session->has_userdata('upload')){
+			if($this->session->userdata('upload'))
+				$data['notif'] = array('type' => 'success', 'message' => 'Data berhasil disimpan');
+			else
+				$data['notif'] = array('type' => 'success', 'message' => 'Data gagal disimpan');
+			$this->session->unset_userdata('upload');
 		}
 
 		$this->display('admin/form_content', $data);
@@ -45,7 +53,7 @@ class Input_content extends MY_Controller {
 					$data_input = array('name_rp' 	=> $proj_name,
 								'type_rp'	=> $proj_type,
 								'active_rp' => $proj_status,
-								'created_at'=> date('Y-m-d'),
+								'created_at'=> date('Y-m-d H:i:s'),
 								'created_by'=> $this->session->userdata('username')
 							);
 					break;
@@ -56,7 +64,7 @@ class Input_content extends MY_Controller {
 					$data_input = array('name_studio' 	=> $proj_name,
 								'type_studio'	=> $proj_type,
 								'active_studio' => $proj_status,
-								'created_at'=> date('Y-m-d'),
+								'created_at'=> date('Y-m-d H:i:s'),
 								'created_by'=> $this->session->userdata('username')
 							);
 					break;
@@ -67,7 +75,7 @@ class Input_content extends MY_Controller {
 					$data_input = array('name_up' 	=> $proj_name,
 								'type_up'	=> $proj_type,
 								'active_up' => $proj_status,
-								'created_at'=> date('Y-m-d'),
+								'created_at'=> date('Y-m-d H:i:s'),
 								'created_by'=> $this->session->userdata('username')
 							);
 					break;
@@ -77,13 +85,12 @@ class Input_content extends MY_Controller {
 					break;
 			}
 
-			
-
 			$this->load->model('content_model', 'content');
 
 			if($this->content->save_content($data_input, $table)){
 				$id = $this->db->insert_id();
 				$res = $this->upload_images($id, $table_img);
+				$this->session->set_userdata('upload', $res);
 				redirect('input_content?proj='.$proj_num);
 			}
 		}
@@ -119,7 +126,7 @@ class Input_content extends MY_Controller {
                 			$fileData 						= $this->upload->data();
 		                    $uploadData[$i]['id_rp'] 		= $id;
 		                    $uploadData[$i]['url_irp'] 		= 'upload/'.$fileData['file_name'];
-		                    $uploadData[$i]['created_at'] 	= date("Y-m-d");
+		                    $uploadData[$i]['created_at'] 	= date('Y-m-d H:i:s');
 		                    $uploadData[$i]['created_by'] 	= $this->session->userdata('username');
                 			break;
 
@@ -127,7 +134,7 @@ class Input_content extends MY_Controller {
                 			$fileData 						= $this->upload->data();
 		                    $uploadData[$i]['id_studio']	= $id;
 		                    $uploadData[$i]['url_istd'] 	= 'upload/'.$fileData['file_name'];
-		                    $uploadData[$i]['created_at'] 	= date("Y-m-d");
+		                    $uploadData[$i]['created_at'] 	= date('Y-m-d H:i:s');
 		                    $uploadData[$i]['created_by'] 	= $this->session->userdata('username');
                 			break;
 
@@ -135,7 +142,7 @@ class Input_content extends MY_Controller {
                 			$fileData 						= $this->upload->data();
 		                    $uploadData[$i]['id_up'] 		= $id;
 		                    $uploadData[$i]['url_iup'] 		= 'upload/'.$fileData['file_name'];
-		                    $uploadData[$i]['created_at'] 	= date("Y-m-d");
+		                    $uploadData[$i]['created_at'] 	= date('Y-m-d H:i:s');
 		                    $uploadData[$i]['created_by'] 	= $this->session->userdata('username');
                 			break;
                 		

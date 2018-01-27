@@ -16,4 +16,14 @@ class Content_model extends CI_Model {
 		$insert = $this->db->insert_batch($table_img,$upload_data);
         return $insert?true:false;
 	}
+
+	public function get_content($table){
+		$content = $this->db->get($table)->result_array();
+		return empty($content) ?  FALSE : $content;
+	}
+
+	public function delete_content($id_proj, $table, $table_id){
+		$res = $this->db->delete($table, array($table_id => $id_proj));
+		return $res? true : false;
+	}
 }

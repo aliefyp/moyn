@@ -1,5 +1,5 @@
 <div class="row">
-    <form method="post" class="form-horizontal" action="<?php echo base_url();?>input_content/submit_content" enctype="multipart/form-data">
+    <form method="post" class="form-horizontal" action="<?php echo base_url();?>my_shop/submit_shop" enctype="multipart/form-data">
     <div class="span10">
       <div class="widget">
 
@@ -9,24 +9,30 @@
         <div class="widget-content">            
                 <fieldset>                  
                   <div class="control-group">                     
-                    <label class="control-label" for="project_name">Project Name</label>
+                    <label class="control-label" for="item_name">Item Name</label>
                     <div class="controls">
-                      <input type="text" class="span3" id="project_name" name="project_name" value="" placeholder="Project Name">
-                      <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo $project?>">
+                      <input type="text" class="span3" id="item_name" name="item_name" value="" placeholder="Item Name">
                     </div>    
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label" for="project_type">Project Type</label>
+                    <label class="control-label" for="item_desc">Item Description</label>
                     <div class="controls">
-                      <input type="text" name="project_type" id="project_type" placeholder="Project Type">
+                      <textarea rows="5" cols="50" type="text" name="item_desc" id="item_desc" placeholder="Item Description"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="item_price">Item Price</label>
+                    <div class="controls">
+                      <input type="text" name="item_price" id="item_price" placeholder="Item Price">
                     </div>
                   </div>
 
                   <div class="control-group">                     
-                    <label class="control-label" for="project_status">Status</label>
+                    <label class="control-label" for="item_status">Status</label>
                     <div class="controls">
-                      <select name="project_status" id="project_status" class="span2">
+                      <select name="item_status" id="item_status" class="span2">
                         <option value="-">Select Status</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
@@ -52,7 +58,7 @@
                       *max. size 2MB/image
                     </div>
                   </div>
-
+                  
                   <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Save</button> 
                     <button class="btn">Cancel</button>
@@ -76,7 +82,7 @@
     ctr++; foto_input++;
   });
 
-  function showImage(elem,num){
+  function showImage(elem, num){
       if (elem.files && elem.files[0]) {
       var reader = new FileReader();
 
@@ -87,4 +93,11 @@
       reader.readAsDataURL(elem.files[0]);
     }
   }
+
+  $("#item_price").priceFormat({
+    prefix: '',
+    centsLimit: 0,
+    thousandsSeparator: '.',
+    clearOnEmpty: true
+  });
 </script>

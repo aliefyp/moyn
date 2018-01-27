@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller {
         $this->get_menu();
         $this->_set_default_css();
         $this->_set_default_js();
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function display($body, $data = null) {
@@ -159,7 +160,42 @@ class MY_Controller extends CI_Controller {
                             'menu_title'    => 'Unbuilt Project',
                             'menu_icon'     => 'icon-money',
                             'menu_url'      => 'input_content?proj=3',
-                            'order_number'  => '1')
+                            'order_number'  => '3'),
+                        5 => array(
+                            'menu_id'       => '6',
+                            'menu_parent'   => '2',
+                            'menu_title'    => 'Realizad Project',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => 'manage_content?proj=1',
+                            'order_number'  => '1'),
+                        6 => array(
+                            'menu_id'       => '7',
+                            'menu_parent'   => '2',
+                            'menu_title'    => 'My Studio',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => 'manage_content?proj=2',
+                            'order_number'  => '2'),
+                        7 => array(
+                            'menu_id'       => '8',
+                            'menu_parent'   => '2',
+                            'menu_title'    => 'Unbuilt Project',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => 'manage_content?proj=3',
+                            'order_number'  => '3'),
+                        8 => array(
+                            'menu_id'       => '9',
+                            'menu_parent'   => '1',
+                            'menu_title'    => 'My Shop',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => '/my_shop',
+                            'order_number'  => '4'),
+                        9 => array(
+                            'menu_id'       => '10',
+                            'menu_parent'   => '2',
+                            'menu_title'    => 'My Shop',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => '/my_shop/shop_list',
+                            'order_number'  => '4')
                     );
 
         return $menu;
