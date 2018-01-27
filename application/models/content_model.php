@@ -39,4 +39,14 @@ class Content_model extends CI_Model {
 		$data = $this->db->query("select * from ".$table_name);
 		return $data->result();
 	}
+	
+	public function get_content($table){
+		$content = $this->db->get($table)->result_array();
+		return empty($content) ?  FALSE : $content;
+	}
+
+	public function delete_content($id_proj, $table, $table_id){
+		$res = $this->db->delete($table, array($table_id => $id_proj));
+		return $res? true : false;
+	}
 }
