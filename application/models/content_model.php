@@ -36,6 +36,8 @@ class Content_model extends CI_Model {
 				break;
 		}
 
+		$data = $this->db->query("select * from ".$table_name);
+		// var_dump($data->result());die();
 		return $data->result();
 	}
 	

@@ -218,6 +218,7 @@ button:focus {
 		width: 508px;
 		height: 432px;
 		display: inline-block;
+		vertical-align: middle;
 	}
 	
 	&__column-inner {
@@ -233,9 +234,9 @@ button:focus {
 		margin-bottom: 8px;
 		animation: fadeIn 1s ease-in-out;
 		
-		&:nth-child(odd) {
-			margin-right: 8px;
-		}
+		// &:nth-child(odd) {
+		// 	margin-right: 8px;
+		// }
 	}
 
 	&__prev {

@@ -5,6 +5,8 @@ Array.prototype.chunk = function ( n ) {
 
 const fetchDataProject = function(queryType) {
 	$("#proj-gallery").empty()
+
+	console.log(queryType)
 	
 	$.ajax({
 		type: "POST",
@@ -83,6 +85,18 @@ $(document).ready(function(){
 
 		this.className += " active"
 
+
+		// if(this.id == "projects"){
+		// 	$(".proj-nav__item").each(function(item) {
+		// 		console.log(item.hasClass(""))
+		// 		if(item.hasClass("")) {
+		// 			item.click()
+		// 		}
+		// 	})
+		// }
+
+
+		// mobile view handling
 		$(".navbar-toggler").click()		
 		$("#content-mobile").empty()
 
@@ -133,6 +147,7 @@ $(document).ready(function(){
 
 
 	// PROJECT
+
 	$("#nav-unbuilt").click(function() {
 		$("#nav-studio").removeClass("active")
 		$("#nav-realized").removeClass("active")
@@ -159,7 +174,7 @@ $(document).ready(function(){
 	})
 
 	// GALLERY
-	var columnWidth = $(window).width() > 992 ? 508 : 258
+	var columnWidth = $(window).width() > 992 ? 516 : 266
 	var currentPosition = 1
 	
 	$("#gallery-prev").click(function() {
