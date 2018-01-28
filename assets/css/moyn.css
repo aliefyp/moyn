@@ -171,7 +171,8 @@ button:focus {
   .proj-gallery__column {
     width: 508px;
     height: 432px;
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: middle; }
   .proj-gallery__column-inner {
     display: flex;
     flex-direction: row;
@@ -182,8 +183,6 @@ button:focus {
     height: 100px;
     margin-bottom: 8px;
     animation: fadeIn 1s ease-in-out; }
-    .proj-gallery__thumb:nth-child(odd) {
-      margin-right: 8px; }
   .proj-gallery__prev {
     content: "";
     float: left;
