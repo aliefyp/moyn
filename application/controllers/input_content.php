@@ -32,7 +32,7 @@ class Input_content extends MY_Controller {
 			if($this->session->userdata('upload'))
 				$data['notif'] = array('type' => 'success', 'message' => 'Data berhasil disimpan');
 			else
-				$data['notif'] = array('type' => 'success', 'message' => 'Data gagal disimpan');
+				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
 			$this->session->unset_userdata('upload');
 		}
 
