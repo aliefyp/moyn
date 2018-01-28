@@ -34,6 +34,7 @@ class MY_Controller extends CI_Controller {
         $this->add_css("style.css");
         $this->add_css("jquery-ui.css");
         $this->add_css("//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css", TRUE);
+        $this->add_css("jquery.bxslider.css");
     }
 
     private function _set_default_js(){
@@ -42,6 +43,7 @@ class MY_Controller extends CI_Controller {
         $this->add_js("base.js");
         $this->add_js("jquery-ui.js");
         $this->add_js("//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js", TRUE);
+        $this->add_js("jquery.bxslider.min.js");
     }
 
     public function add_js($js,$from_url = FALSE) {

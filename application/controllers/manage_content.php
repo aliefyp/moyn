@@ -151,5 +151,48 @@ class Manage_content extends MY_Controller {
 
 		$this->display('admin/list_content', $data);
 	}
+
+	public function get_images(){
+		$type_proj = $this->input->get('type_proj');
+		$id_proj = $this->input->get('id_proj');
+		$this->load->model('content_model', 'content');
+
+		switch ($type_proj) {
+			case '1':
+				$data['_title']  = 'Manage Realized Project';
+				$data['project'] = 1;
+				$table 			 = 'img_realized_project';
+				$id_name 		 = 'id_rp';
+				break;
+
+			case '2':
+				$data['_title']  = 'Manage My Studio';
+				$data['project'] = 2;
+				$table 			 = 'img_my_studio';
+				$id_name 		 = 'id_studio';
+				break;
+
+			case '3':
+				$data['_title']  = 'Manage Unbuilt Project';
+				$data['project'] = 3;
+				$table 			 = 'img_unbuilt_project';
+				$id_name 		 = 'id_up';
+				break;
+			
+			default:
+				$data['_title']  = 'Manage Realized Project';
+				$data['project'] = 1;
+				$table 			 = 'img_realized_project';
+				$id_name 		 = 'id_rp';
+				break;
+		}
+
+		$res = $this->content->get_images($table, $id_proj, $id_name);
+		if($this->input->get('json')){
+			echo json_encode($res);
+			exit();
+		}
+		return $res;
+	}
 	
 }

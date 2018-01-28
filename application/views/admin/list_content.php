@@ -27,8 +27,8 @@
                         <td><?php echo $value['type'];?></td>
                         <td><?php echo $value['active'];?></td>
                         <td>
-                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal">Lihat Gambar</a>
-                          <a class="btn btn-small btn-warning" href="">Edit</a>
+                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal" id="show_img" onclick="show_img('<?php echo $project;?>', '<?php echo $value["id"];?>')">Lihat Gambar</a>
+                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'manage_content/get_images?type_proj='.$project.'&id_proj='.$value['id'];?>">Edit</a>
                           <a class="btn btn-small btn-danger" href="<?php echo base_url().'manage_content/delete_content?type_proj='.$project.'&id_proj='.$value['id'];?>" onclick="return confirm('Anda yakin?')">Hapus</a>
                         </td>
                       </tr>
@@ -50,12 +50,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Data Siswa</h4>
+        <h4 class="modal-title">Images</h4>
       </div>
-      <div class="modal-body" align="center">
-          <table class="table" id="isidetail">
-           
-          </table>
+      <div class="modal-body" align="center" id="modal-body">
+        <ul id="bxslider" class="bxslider">
+          
+        </ul>
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -69,8 +70,21 @@
     $('#myTable').dataTable();
   });
 
-  function lihatDetail(id_siswa){
-    
-      
-  }
+  function show_img(type_proj, id_proj){
+    $.ajax({
+      url: '<?php echo base_url()?>manage_content/get_images',
+      data: {type_proj:type_proj, id_proj:id_proj, json:1},
+      typeData: 'json',
+      type: 'GET',
+      success: function(data){  
+      data = JSON.parse(data);      
+        if(data){
+          for(var i=0; i<data.length; i++){
+            $('#bxslider').append('<li><img src="'+data[i].url_irp+'"></li>');
+          } 
+        }
+      }
+    });
+}
+  
 </script>
