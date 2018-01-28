@@ -36,7 +36,6 @@ class Content_model extends CI_Model {
 				break;
 		}
 
-		$data = $this->db->query("select * from ".$table_name);
 		return $data->result();
 	}
 	
@@ -48,5 +47,10 @@ class Content_model extends CI_Model {
 	public function delete_content($id_proj, $table, $table_id){
 		$res = $this->db->delete($table, array($table_id => $id_proj));
 		return $res? true : false;
+	}
+
+	public function get_images($table, $proj_id, $table_id){
+		$res = $this->db->get_where($table, array($table_id => $proj_id))->result_array();
+		return empty($res)? FALSE : $res;
 	}
 }
