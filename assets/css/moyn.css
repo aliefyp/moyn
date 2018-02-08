@@ -11,124 +11,134 @@ html, body {
 button:focus {
   outline: none; }
 
-.moyn__container {
-  position: relative;
-  min-height: 100vh;
-  box-sizing: border-box;
-  margin: auto;
-  padding: 0; }
-.moyn__header {
+.navbar--sm {
+  margin: 24px 0;
+  float: right;
+  display: none; }
+
+.moyn-header {
   padding-top: 24px;
   box-sizing: border-box; }
-  .moyn__header img {
+  .moyn-header img {
     width: 120px;
     height: auto;
     margin: 32px 0; }
-.moyn__footer {
+
+.moyn-footer {
   text-align: right;
   position: absolute;
   bottom: 8px;
   right: 16px;
   box-sizing: border-box; }
-.moyn__navbar--mobile {
-  margin: 24px 0;
-  float: right;
-  display: none; }
-.moyn__menu {
+
+.moyn-menu {
   width: 40%;
   padding: 0;
   display: inline-block;
   float: left; }
-.moyn__menu-item {
+
+.moyn-menu-item {
   display: block;
   padding: 8px 0;
   color: rgba(255, 255, 255, 0.3);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   letter-spacing: 1px; }
-  .moyn__menu-item a {
+  .moyn-menu-item .moyn-content {
+    max-width: 60%;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    margin-top: 32px;
+    display: none;
+    cursor: default;
+    opacity: 0; }
+    .moyn-menu-item .moyn-content--right {
+      text-align: right; }
+  .moyn-menu-item .moyn-content-nav {
+    width: 60%;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    margin-top: -8px;
+    display: none;
+    cursor: default;
+    opacity: 0;
+    flex-wrap: wrap;
+    float: right;
     color: rgba(255, 255, 255, 0.3); }
-  .moyn__menu-item a:hover {
+  .moyn-menu-item a {
+    color: rgba(255, 255, 255, 0.3); }
+  .moyn-menu-item a:hover {
     text-decoration: none; }
-  .moyn__menu-item a:hover {
+  .moyn-menu-item a:hover {
     color: rgba(255, 255, 255, 0.7); }
-  .moyn__menu-item.active {
+  .moyn-menu-item.active {
     margin-bottom: 24px; }
-  .moyn__menu-item.active, .moyn__menu-item.active a {
+    .moyn-menu-item.active .moyn-content {
+      display: block;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 1s; }
+    .moyn-menu-item.active .moyn-content-nav {
+      display: flex;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 1s;
+      font-size: 16px; }
+  .moyn-menu-item.active, .moyn-menu-item.active a {
     color: rgba(255, 255, 255, 0.7); }
-  .moyn__menu-item:after {
+  .moyn-menu-item:after {
     content: "";
     width: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     display: block;
     position: absolute;
     margin-top: 20px; }
-  .moyn__menu-item.active:after {
+  .moyn-menu-item.active:after {
     width: 100%;
     -webkit-animation: slideRight 1s ease-in-out;
     animation: slideRight 1s ease-in-out; }
-.moyn__extra-content {
-  width: 60%;
-  display: none;
-  float: left; }
-.moyn__extra-content.active {
-  display: inline-block;
-  animation: fadeIn 1s ease-in-out forwards; }
-.moyn__menu--mobile {
+
+.moyn-menu--sm {
   display: none;
   margin-bottom: 32px;
   padding-bottom: 16px; }
-.moyn__menu--mobile .moyn__menu-item {
+
+.moyn-menu-item--sm {
   display: inline-block;
   padding: 0 8px; }
-.moyn__menu--mobile .moyn__menu-item:first-child {
-  padding-left: 0; }
-.moyn__menu--mobile .moyn__menu-item:last-child {
-  padding-right: 0; }
-.moyn__menu--mobile .moyn__menu-item:after {
-  border: none;
-  margin: 0;
-  position: initial; }
-.moyn__menu--mobile .moyn__menu-item.active {
-  margin: 0; }
-.moyn__menu--mobile .moyn__menu-item.active:after {
-  width: 0; }
-.moyn__content--mobile {
-  display: none; }
-.moyn__menu-content {
-  max-width: 60%;
-  right: 0;
-  position: absolute;
-  text-align: center;
-  margin-top: 32px;
-  display: none;
-  cursor: default;
-  opacity: 0; }
-.moyn__menu-item.active .moyn__menu-content {
-  display: block;
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 1s; }
-.moyn__content-nav {
+  .moyn-menu-item--sm a {
+    color: rgba(255, 255, 255, 0.3); }
+  .moyn-menu-item--sm a:hover {
+    text-decoration: none; }
+  .moyn-menu-item--sm a:hover {
+    color: rgba(255, 255, 255, 0.7); }
+  .moyn-menu-item--sm:first-child {
+    padding-left: 0; }
+  .moyn-menu-item--sm:last-child {
+    padding-right: 0; }
+  .moyn-menu-item--sm:after {
+    border: none;
+    margin: 0;
+    position: initial; }
+  .moyn-menu-item--sm.active {
+    margin: 0; }
+  .moyn-menu-item--sm.active:after {
+    width: 0; }
+  .moyn-menu-item--sm .moyn-content--sm {
+    display: none; }
+
+.moyn-extra-content {
   width: 60%;
-  right: 0;
-  position: absolute;
-  text-align: center;
-  margin: auto;
-  margin-top: -8px;
   display: none;
-  cursor: default;
-  opacity: 0;
-  flex-wrap: wrap;
-  float: right;
-  color: rgba(255, 255, 255, 0.3); }
-.moyn__menu-item.active .moyn__content-nav {
-  display: flex;
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 1s;
-  font-size: 16px; }
-.moyn__founders-img {
+  float: left; }
+  .moyn-extra-content.active {
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out forwards; }
+
+.moyn-founders {
   position: relative; }
-  .moyn__founders-img--left {
+  .moyn-founders--left {
     float: left;
     width: 50%;
     height: 120px;
@@ -136,10 +146,10 @@ button:focus {
     overflow: hidden;
     text-align: right;
     position: relative; }
-    .moyn__founders-img--left img {
+    .moyn-founders--left img {
       height: 120px;
       transform: translateX(50px); }
-    .moyn__founders-img--left .desc {
+    .moyn-founders--left .desc {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -149,7 +159,7 @@ button:focus {
       display: none;
       background: black;
       padding-top: 16px; }
-  .moyn__founders-img--right {
+  .moyn-founders--right {
     float: left;
     width: 50%;
     height: 120px;
@@ -157,10 +167,10 @@ button:focus {
     overflow: hidden;
     text-align: left;
     position: relative; }
-    .moyn__founders-img--right img {
+    .moyn-founders--right img {
       height: 120px;
       transform: translateX(-50px); }
-    .moyn__founders-img--right .desc {
+    .moyn-founders--right .desc {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -171,37 +181,55 @@ button:focus {
       background: black;
       padding-top: 16px; }
 
+.moyn-btn {
+  display: inline-block;
+  padding: 8px 32px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; }
+
+.moyn-btn:hover,
+.moyn-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7); }
+
 .purchasing img.product-img {
   width: 50%;
   display: inline-block;
   vertical-align: top;
   margin-right: 16px; }
 .purchasing input {
-  width: 100%;
   height: 32px; }
+.purchasing input,
 .purchasing textarea {
-  width: 100%; }
-.purchasing .product-desc {
+  width: 100%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.7); }
+.purchasing input:focus,
+.purchasing textarea:focus {
+  outline: none; }
+.purchasing .product-desc,
+.purchasing .purchase-form {
   display: inline-block;
   color: rgba(255, 255, 255, 0.7);
   width: 40%;
   box-sizing: border-box; }
-  .purchasing .product-desc .title {
+  .purchasing .product-desc .title,
+  .purchasing .purchase-form .title {
     font-size: 16px;
     margin-bottom: 16px; }
-  .purchasing .product-desc .description {
+  .purchasing .product-desc .description,
+  .purchasing .purchase-form .description {
     margin-bottom: 32px; }
-  .purchasing .product-desc .purchase {
-    display: inline-block;
-    padding: 8px 32px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    color: rgba(255, 255, 255, 0.7);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out; }
-  .purchasing .product-desc .purchase:hover,
-  .purchasing .product-desc .purchase:active {
-    background: rgba(255, 255, 255, 0.3); }
+.purchasing .purchase-form {
+  width: 50%; }
+  .purchasing .purchase-form .moyn-btn {
+    float: right; }
 
 .gallery {
   width: 508px;
@@ -412,16 +440,16 @@ button:focus {
   color: rgba(255, 255, 255, 0.7); }
 
 @media (max-width: 576px) {
-  .moyn__menu {
+  .moyn-menu {
     display: none; }
 
-  .moyn__menu--mobile {
+  .moyn-menu--sm {
     display: block; }
 
-  .moyn__navbar--mobile {
+  .navbar--sm {
     display: inline-block; }
 
-  .moyn__content--mobile {
+  .moyn-content--sm {
     display: block; }
 
   .popup .navigation,

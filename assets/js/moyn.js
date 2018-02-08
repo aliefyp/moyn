@@ -175,12 +175,12 @@ $(document).ready(function(){
 	}
 	
 	// PROFILE
-	$(".moyn__founders-img--left > img").hover(function(){
-		$(".moyn__founders-img--right > .desc").fadeToggle( "fast", "linear" )
+	$(".moyn-founders--left > img").hover(function(){
+		$(".moyn-founders--right > .desc").fadeToggle( "fast", "linear" )
 	})
 
-	$(".moyn__founders-img--right > img").hover(function(){
-		$(".moyn__founders-img--left > .desc").fadeToggle( "fast", "linear" )
+	$(".moyn-founders--right > img").hover(function(){
+		$(".moyn-founders--left > .desc").fadeToggle( "fast", "linear" )
 	})
 
 
@@ -190,40 +190,20 @@ $(document).ready(function(){
 
 		if($(window).width() <= 576) {
 			// $(".navbar-toggler").click()		
-			$("#content-mobile").empty()
+			$("#content-sm").empty()
 			switch (route) {
 				case "profile":
-					$("#content-mobile").append($("<div class='c-white'>PROFILE</div>")).fadeIn()
-					$("#content-mobile").append($("#content-profile")[0]).fadeIn()
-					$("#content-profile").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
-					})
+					$("#content-sm").append($("<div class='c-white mb-16'>PROFILE</div>")).fadeIn()
+					$("#content-sm").append($("#content-profile")[0]).fadeIn()
 					break;
 				case "projects":
-					$("#content-mobile").append($("<div class='c-white'>PROJECT</div>")).fadeIn()
-					$("#content-mobile").append($("#content-project")[0]).fadeIn()
-					$("#content-project").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
-					})
+					$("#content-sm").append($("<div class='c-white mb-16'>PROJECT</div>")).fadeIn()
+					$("#content-sm").append($("#content-project")[0]).fadeIn()
+					$("#content-sm").append($("#content-project")[1]).fadeIn()
 					break
 				case "contact":			
-					$("#content-mobile").append($("<div class='c-white'>CONTACT</div>")).fadeIn()			
-					$("#content-mobile").append($("#content-contact")[0]).fadeIn()
-					$("#content-contact").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
-					})
+					$("#content-sm").append($("<div class='c-white mb-16'>CONTACT</div>")).fadeIn()			
+					$("#content-sm").append($("#content-contact")[0]).fadeIn()
 					break;
 			
 				default:
@@ -233,7 +213,7 @@ $(document).ready(function(){
 	// })
 
 	// FOOTER
-	$(".moyn__footer")[0].style.top = window.innerHeight - $(".moyn__footer")[0].clientHeight - 8
+	$(".moyn-footer")[0].style.top = window.innerHeight - $(".moyn-footer")[0].clientHeight - 8
 
 
 	// PROJECT

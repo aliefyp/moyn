@@ -11,10 +11,10 @@
 
 	<body>
 		<div class="container relative">
-			<div class="moyn__header">
+			<div class="moyn-header">
 				<img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo">
-				<!-- hamburger (mobile) -->
-				<nav class="navbar navbar-dark moyn__navbar--mobile ">
+				<!-- hamburger (sm) -->
+				<nav class="navbar navbar-dark navbar--sm ">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -23,15 +23,15 @@
 			</div>
 
 			<!-- menu desktop -->
-			<div class="moyn__menu">
-				<div class="moyn__menu-item  <?php if($this->uri->segment(1)=="profile"){echo 'active';}?>" id="profile">
+			<div class="moyn-menu">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="profile"){echo 'active';}?>" id="profile">
 					<a href="<?php echo base_url(); ?>profile">PROFILE</a>
-					<div class="moyn__menu-content" id="content-profile">
+					<div class="moyn-content" id="content-profile">
 						<p>Established in 2018, moyn is an architectural design studio based on the countryside of central Java.<br />
 						the balance between spaces inside and outside, environment and architecture, human and architecture.<br />
 						moyn architecture is seeking for equilibrium, a pursuit of idea to stand between them</p>
-						<div class="moyn__founders-img">
-							<div class="moyn__founders-img--left">
+						<div class="moyn-founders">
+							<div class="moyn-founders--left">
 								<img src="http://i65.tinypic.com/ibw8et.png" alt="moyn-founders">
 								<div class="desc">
 									<div>Aldila Septiano |</div>
@@ -41,7 +41,7 @@
 									<div>Established moyn |</div>
 								</div>
 							</div>
-							<div class="moyn__founders-img--right">
+							<div class="moyn-founders--right">
 								<img src="http://i65.tinypic.com/ibw8et.png" alt="moyn-founders">
 								<div class="desc">
 									<div>| Ra'id N. Naufal</div>
@@ -54,25 +54,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
 					<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
-					<div class="moyn__content-nav justify-content-end" id="content-project">
+					<div class="moyn-content-nav justify-content-end" id="content-project">
 						<div class="proj-nav">
 							<div class="proj-nav__item" id="nav-unbuilt" >&ndash;</div>
 							<div class="proj-nav__item active" id="nav-studio" >0</div>
 							<div class="proj-nav__item" id="nav-realized" >+</div>
 						</div>
 					</div>
-					<div class="moyn__menu-content">
-						<!-- <div class="moyn__gallery" id="gallery"></div> -->
+					<div class="moyn-content" id="content-project">
 						<div class="gallery" id="gallery-project"></div>
 						<div class="proj-next" id="gallery-project-next">&gt;</div>
 						<div class="proj-prev" id="gallery-project-prev">&lt;</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
 					<a href="<?php echo base_url(); ?>contact">CONTACT</a>
-					<div class="moyn__menu-content ta-right" id="content-contact">
+					<div class="moyn-content moyn-content--right" id="content-contact">
 						<div class="mb-16">
 							<div>Jl.Carikan Gondosuli</div>
 							<div>Muntailan Magelang, 56415</div>
@@ -85,12 +84,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
 					<a href="<?php echo base_url(); ?>news">NEWS</a>			
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
 					<a href="<?php echo base_url(); ?>shop">SHOP</a>		
-					<div class="moyn__menu-content">
+					<div class="moyn-content">
 						<div class="gallery" id="gallery-shop"></div>
 						<div class="proj-next" id="gallery-shop-next">&gt;</div>
 						<div class="proj-prev" id="gallery-shop-prev">&lt;</div>
@@ -98,14 +97,24 @@
 				</div>
 			</div>
 
-			<div class="moyn__extra-content <?php if($this->uri->segment(1)=="product"){echo 'active';}?>">
+			<div class="moyn-extra-content <?php if($this->uri->segment(1)=="product"){echo 'active';}?>">
 				<div class="purchasing">
 					<img src="<?php echo $product->url_img_item ?>" alt="<?php echo $product->name_item ?>" class="product-img" />
 					<div class="product-desc">
 						<div class="title"><?php echo $product->name_item ?></div>
 						<div class="description"><?php echo $product->deskripsi_item ?></div>
-						<button class="purchase" onclick="goBack()">BACK</button>
-						<button class="purchase">BUY</button>
+						<a class="moyn-btn" onclick="goBack()">BACK</a>
+						<a href="<?php echo base_url(); ?>purchase?id=<?php echo $product->id_item ?>" class="moyn-btn">BUY</a>
+					</div>
+				</div>
+			</div>
+			
+
+
+			<div class="moyn-extra-content <?php if($this->uri->segment(1)=="purchase"){echo 'active';}?>">
+				<div class="purchasing">
+					<div class="purchase-form">
+						<div class="title">Purchasing: <?php echo $product->name_item ?></div>
 						<form action="" class="mt-32" id="purchase-form">
 							<div class="mb-16">Please fill following form</div>
 							<input class="mb-8" type="text" placeHolder="Fullname" required autofocus />
@@ -113,39 +122,40 @@
 							<input class="mb-8" type="text" placeHolder="Quantity" required />
 							<input class="mb-8" type="text" placeHolder="Phone" required />
 							<textarea class="mb-8" cols="30" rows="3" placeHolder="Shipping Address" required></textarea>
-							<textarea class="mb-8" cols="30" rows="3" placeHolder="Message" required></textarea>
+							<textarea class="mb-8" cols="30" rows="3" placeHolder="Message"></textarea>
+							<button class="moyn-btn mt-16 pull-right">BUY</button>
 						</form>
 					</div>
 				</div>
-			</div>
+			<!-- </div> -->
 
 
-			<!-- menu mobile -->
-			<div class="moyn__menu--mobile">
+			<!-- menu sm -->
+			<div class="moyn-menu--sm">
 				<div class="collapse" id="navbarToggleExternalContent">
 					<div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="profile" || $this->uri->segment(1)==""){echo 'active';}?>" id="profile">
+						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="profile" || $this->uri->segment(1)==""){echo 'active';}?>" id="profile">
 							<a href="<?php echo base_url(); ?>profile">PROFILE</a>
 						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
+						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
 							<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
 						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
+						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
 							<a href="<?php echo base_url(); ?>contact">CONTACT</a>
 						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
+						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
 							<a href="<?php echo base_url(); ?>news">NEWS</a>
 						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
+						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
 							<a href="<?php echo base_url(); ?>shop">SHOP</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="moyn__content--mobile" id="content-mobile"></div>
+			<div class="moyn-content--sm" id="content-sm"></div>
 
 			<!-- footer -->
-			<div class="moyn__footer">
+			<div class="moyn-footer">
 				Copyright &copy 2018 | <span><img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo" height="16"></span>
 			</div>
 

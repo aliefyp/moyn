@@ -15,114 +15,46 @@ button:focus {
 	outline: none
 }
 
-.moyn {
-	&__container {
-		position: relative;
-		min-height: 100vh;
-		box-sizing: border-box;
-		margin: auto;
-		padding: 0;
+.navbar--sm {
+	margin: 24px 0;
+	float: right;
+	display: none;
+}
+
+.moyn-header {
+	padding-top: 24px;
+	box-sizing: border-box;
+
+	img {
+		width: 120px;
+		height: auto;
+		margin: 32px 0;
 	}
+}
 
-	&__header {
-		padding-top: 24px;
-		box-sizing: border-box;
+.moyn-footer {
+	text-align: right;
+	position: absolute;
+	bottom: 8px;
+	right: 16px;
+	box-sizing: border-box;
+}
 
-		img {
-			width: 120px;
-			height: auto;
-			margin: 32px 0;
-		}
-	}
+.moyn-menu {
+	width: 40%;
+	padding: 0;
+	display: inline-block;
+	float: left;}
 
-	&__footer {
-		text-align: right;
-		position: absolute;
-		bottom: 8px;
-		right: 16px;
-		box-sizing: border-box;
-	}
+.moyn-menu-item {
+	display: block;
+	padding: 8px 0;
+	color: rgba(255, 255, 255, 0.3);
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	letter-spacing: 1px;
 
-	&__navbar--mobile {
-		margin: 24px 0;
-		float: right;
-		display: none;
-	}
-
-	&__menu {
-		width: 40%;
-		padding: 0;
-		display: inline-block;
-		float: left;}
-
-	&__menu-item {
-		display: block;
-		padding: 8px 0;
-		color: rgba(255, 255, 255, 0.3);
-		-webkit-transition: all 0.2s ease-in-out;
-		transition: all 0.2s ease-in-out;
-		letter-spacing: 1px;
-
-		a {color: rgba(255, 255, 255, 0.3);}
-		a:hover {text-decoration: none}
-		a:hover {	
-			color: rgba(255, 255, 255, 0.7);}
-
-		&.active {
-			margin-bottom: 24px;}
-		&.active,
-		&.active a {
-			color: rgba(255, 255, 255, 0.7);}
-		&:after {
-			content: "";
-			width: 0;
-			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-			display: block;
-			position: absolute;
-			margin-top: 20px;}
-		&.active:after {
-			width: 100%;
-			-webkit-animation: slideRight 1s ease-in-out;
-			        animation: slideRight 1s ease-in-out;}
-	}
-
-	&__extra-content {
-		width: 60%;
-		display: none;
-		float: left;
-	}
-	&__extra-content.active {
-		display: inline-block;
-		animation: fadeIn 1s ease-in-out forwards;
-	}
-
-	&__menu--mobile {
-		display: none;
-		margin-bottom: 32px;
-		// border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-		padding-bottom: 16px;}
-	&__menu--mobile &__menu-item {
-		display: inline-block;
-		padding: 0 8px;}
-	&__menu--mobile &__menu-item:first-child {
-		padding-left: 0;}
-	&__menu--mobile &__menu-item:last-child {
-		padding-right: 0;}
-	&__menu--mobile &__menu-item:after {
-		border: none;
-		margin: 0;
-		position: initial;}
-	&__menu--mobile &__menu-item.active {
-		margin: 0;}
-	&__menu--mobile &__menu-item.active:after {
-		width: 0;}
-
-	&__content--mobile {
-		display: none;
-	}
-
-
-	&__menu-content {
+	.moyn-content {
 		max-width: 60%;
 		right: 0;
 		position: absolute;
@@ -130,13 +62,14 @@ button:focus {
 		margin-top: 32px;
 		display: none;
 		cursor: default;
-		opacity: 0;}
-	&__menu-item.active &__menu-content {
-		display: block;
-		animation: fadeIn 1s ease-in-out forwards;
-		animation-delay: 1s;}
+		opacity: 0;
+		
+		&--right {
+			text-align: right;
+		}
+	}
 
-	&__content-nav {
+	.moyn-content-nav {
 		width: 60%;
 		right: 0;
 		position: absolute;
@@ -150,71 +83,163 @@ button:focus {
 		float: right;
 		color: rgba(255, 255, 255, 0.3);
 	}
-	
-	&__menu-item.active &__content-nav {
-		display: flex;
-		animation: fadeIn 1s ease-in-out forwards;
-		animation-delay: 1s;
-		font-size: 16px;
+
+	a {color: rgba(255, 255, 255, 0.3);}
+	a:hover {text-decoration: none}
+	a:hover {	
+		color: rgba(255, 255, 255, 0.7);}
+
+	&.active {
+		margin-bottom: 24px;
+
+		.moyn-content {
+			display: block;
+			animation: fadeIn 1s ease-in-out forwards;
+			animation-delay: 1s;}
+
+		.moyn-content-nav {
+			display: flex;
+			animation: fadeIn 1s ease-in-out forwards;
+			animation-delay: 1s;
+			font-size: 16px;
+		}
 	}
 
-	&__founders-img {
+	&.active,
+	&.active a {
+		color: rgba(255, 255, 255, 0.7);}
+	&:after {
+		content: "";
+		width: 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		display: block;
+		position: absolute;
+		margin-top: 20px;}
+	&.active:after {
+		width: 100%;
+		-webkit-animation: slideRight 1s ease-in-out;
+						animation: slideRight 1s ease-in-out;}
+}
+
+
+
+.moyn-menu--sm {
+	display: none;
+	margin-bottom: 32px;
+	padding-bottom: 16px;}
+
+.moyn-menu-item--sm {
+	display: inline-block;
+	padding: 0 8px;
+	a {color: rgba(255, 255, 255, 0.3);}
+	a:hover {text-decoration: none}
+	a:hover {	
+		color: rgba(255, 255, 255, 0.7);}
+
+	&:first-child {
+		padding-left: 0;}
+	&:last-child {
+		padding-right: 0;}
+	&:after {
+		border: none;
+		margin: 0;
+		position: initial;}
+	&.active {
+		margin: 0;}
+	&.active:after {
+		width: 0;}
+
+	.moyn-content--sm {
+		display: none;
+	}
+}
+
+.moyn-extra-content {
+	width: 60%;
+	display: none;
+	float: left;
+
+	&.active {
+		display: inline-block;
+		animation: fadeIn 1s ease-in-out forwards;
+	}
+}
+
+.moyn-founders {
+	position: relative;
+
+	&--left {
+		float: left;
+		width: 50%;
+		height: 120px;
+		display: inline-block;
+		overflow: hidden;
+		text-align: right;
 		position: relative;
 
-		&--left {
-			float: left;
-			width: 50%;
+		img {
 			height: 120px;
-			display: inline-block;
-			overflow: hidden;
-			text-align: right;
-			position: relative;
-
-			img {
-				height: 120px;
-				transform: translateX(50px);
-			}
-
-			.desc {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				right: 0;
-				top: 0;
-				text-align: right;
-				display: none;
-				background: black;
-				padding-top: 16px;
-			}
+			transform: translateX(50px);
 		}
 
-		&--right {
-			float: left;
-			width: 50%;
-			height: 120px;
-			display: inline-block;
-			overflow: hidden;
-			text-align: left;
-			position: relative;
-
-			img {
-				height: 120px;
-				transform: translateX(-50px);
-			}
-
-			.desc {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				left: 0;
-				top: 0;
-				text-align: left;
-				display: none;
-				background: black;
-				padding-top: 16px;
-			}
+		.desc {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			right: 0;
+			top: 0;
+			text-align: right;
+			display: none;
+			background: black;
+			padding-top: 16px;
 		}
 	}
+
+	&--right {
+		float: left;
+		width: 50%;
+		height: 120px;
+		display: inline-block;
+		overflow: hidden;
+		text-align: left;
+		position: relative;
+
+		img {
+			height: 120px;
+			transform: translateX(-50px);
+		}
+
+		.desc {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			text-align: left;
+			display: none;
+			background: black;
+			padding-top: 16px;
+		}
+	}
+}
+
+
+
+.moyn-btn {
+	display: inline-block;
+	padding: 8px 32px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	color: rgba(255, 255, 255, 0.7);
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.moyn-btn:hover,
+.moyn-btn:active {
+	background: rgba(255, 255, 255, 0.3);
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .purchasing {
@@ -225,10 +250,20 @@ button:focus {
 		margin-right: 16px;
 	}
 
-	input {width: 100%;height: 32px;}
-	textarea {width: 100%}
+	input {height: 32px;}
+	input,
+	textarea {
+		width: 100%;
+		background: transparent;
+		color: rgba(255, 255, 255, 0.7);
+		box-shadow: none;
+		border: 1px solid rgba(255, 255, 255, 0.7);}
+	input:focus,
+	textarea:focus {
+		outline: none;}
 
-	.product-desc {
+	.product-desc,
+	.purchase-form {
 		display: inline-block;
 		color: rgba(255, 255, 255, 0.7);
 		width: 40%;
@@ -242,20 +277,13 @@ button:focus {
 		.description {
 			margin-bottom: 32px;
 		}
+	}
 
-		.purchase {
-			display: inline-block;
-			padding: 8px 32px;
-			border: 2px solid rgba(255, 255, 255, 0.7);
-			color: rgba(255, 255, 255, 0.7);
-			background: transparent;
-			cursor: pointer;
-			transition: all 0.2s ease-in-out;
-		}
+	.purchase-form {
+		width: 50%;
 
-		.purchase:hover,
-		.purchase:active {
-			background: rgba(255, 255, 255, 0.3);
+		.moyn-btn {
+			float: right;
 		}
 	}
 }
@@ -486,10 +514,10 @@ button:focus {
 .c-white {color: rgba(255, 255, 255, 0.7);}
 
 @media (max-width: 576px) {
-	.moyn__menu {display: none}
-	.moyn__menu--mobile {display: block}
-	.moyn__navbar--mobile {display: inline-block}
-	.moyn__content--mobile {display: block}
+	.moyn-menu {display: none}
+	.moyn-menu--sm {display: block}
+	.navbar--sm {display: inline-block}
+	.moyn-content--sm {display: block}
 
 	.popup .navigation,
 	.popup .carousel,
