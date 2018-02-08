@@ -21,14 +21,20 @@ class Content_model extends CI_Model {
 		switch ($project_type) {
 			case "realized_project":
 				$table_name = "realized_project";
+				$table_img_name = "img_realized_project";
+				$id_project = "id_rp";
 				break;
 
 			case "unbuilt_project":
 				$table_name = "unbuilt_project";
+				$table_img_name = "img_unbuilt_project";
+				$id_project = "id_up";		
 				break;
 
 			case "my_studio":
 				$table_name = "my_studio";
+				$table_img_name = "img_studio";
+				$id_project = "id_studio";
 				break;
 				
 			default:
@@ -36,9 +42,25 @@ class Content_model extends CI_Model {
 				break;
 		}
 
-		$data = $this->db->query("select * from ".$table_name);
-		// var_dump($data->result());die();
+		$data = $this->db->query("select distinct * from ".$table_name." a inner join ".$table_img_name." b on a.".$id_project."=b.".$id_project." group by a.".$id_project);
 		return $data->result();
+	}
+
+	public function read_shop() {
+		$data = $this->db->query("select distinct * from shop_item a inner join img_shop_item b on a.id_item=b.id_item group by a.id_item");
+		return $data->result();	
+	}
+
+	public function get_product($id_product) {
+		$this->db->distinct();
+		$this->db->select('*');
+		$this->db->from('shop_item');
+		$this->db->join('img_shop_item', 'shop_item.id_item = img_shop_item.id_item');
+		$this->db->where('shop_item.id_item', $id_product);
+		$this->db->group_by('shop_item.id_item');
+
+		$data = $this->db->get();
+		return $data->first_row();	
 	}
 	
 	public function get_content($table){
