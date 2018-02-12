@@ -197,7 +197,21 @@ class MY_Controller extends CI_Controller {
                             'menu_title'    => 'My Shop',
                             'menu_icon'     => 'icon-money',
                             'menu_url'      => '/my_shop/shop_list',
-                            'order_number'  => '4')
+                            'order_number'  => '4'),
+                        10 => array(
+                            'menu_id'       => '11',
+                            'menu_parent'   => NULL,
+                            'menu_title'    => 'Order',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => '/url',
+                            'order_number'  => '3'),
+                        11 => array(
+                            'menu_id'       => '12',
+                            'menu_parent'   => '1',
+                            'menu_title'    => 'News',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => '/input_news',
+                            'order_number'  => '5')
                     );
 
         return $menu;

@@ -13,7 +13,7 @@
                     <div class="controls">
                       <input type="text" class="span3" id="project_name" name="project_name" value="<?php echo empty($result['content']['name']) ? '' : $result['content']['name']; ?>" placeholder="Project Name">
                       <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo $project?>">
-                      <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo empty($id_project) ? '' : $id_project;?>">
+                      <input type="hidden" class="span3" id="project_id" name="project_id" value="<?php echo empty($id_project) ? '' : $id_project;?>">
                     </div>    
                   </div>
 

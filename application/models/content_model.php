@@ -85,4 +85,15 @@ class Content_model extends CI_Model {
 		$res = $this->db->get_where($table, array($table_id => $id_proj))->row_array();
 		return empty($res)? FALSE : $res;
 	}
+
+	public function save_img_news($id, $data){
+		$this->db->set('url_img_news', $data['file_name']);
+		$this->db->where('id_news', $id);
+		$res = $this->db->update('news');
+
+		if($res){
+			return true;
+		}
+		return false;
+	}
 }
