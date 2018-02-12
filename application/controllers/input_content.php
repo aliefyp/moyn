@@ -35,6 +35,7 @@ class Input_content extends MY_Controller {
 				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
 			$this->session->unset_userdata('upload');
 		}
+		$data['url_submit'] = 'input_content/submit_content';
 
 		$this->display('admin/form_content', $data);
 	}
