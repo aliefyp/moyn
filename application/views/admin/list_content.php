@@ -28,7 +28,7 @@
                         <td><?php echo $value['active'];?></td>
                         <td>
                           <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal" id="show_img" onclick="show_img('<?php echo $project;?>', '<?php echo $value["id"];?>')">Lihat Gambar</a>
-                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'manage_content/get_images?type_proj='.$project.'&id_proj='.$value['id'];?>">Edit</a>
+                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'manage_content/edit_content?type_proj='.$project.'&id_proj='.$value['id'];?>">Edit</a>
                           <a class="btn btn-small btn-danger" href="<?php echo base_url().'manage_content/delete_content?type_proj='.$project.'&id_proj='.$value['id'];?>" onclick="return confirm('Anda yakin?')">Hapus</a>
                         </td>
                       </tr>

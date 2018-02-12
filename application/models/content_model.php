@@ -43,6 +43,9 @@ class Content_model extends CI_Model {
 		}
 
 		$data = $this->db->query("select distinct * from ".$table_name." a inner join ".$table_img_name." b on a.".$id_project."=b.".$id_project." group by a.".$id_project);
+
+		$data = $this->db->query("select * from ".$table_name);
+
 		return $data->result();
 	}
 
@@ -75,6 +78,11 @@ class Content_model extends CI_Model {
 
 	public function get_images($table, $proj_id, $table_id){
 		$res = $this->db->get_where($table, array($table_id => $proj_id))->result_array();
+		return empty($res)? FALSE : $res;
+	}
+
+	public function get_content_by_id($table, $table_id, $id_proj){
+		$res = $this->db->get_where($table, array($table_id => $id_proj))->row_array();
 		return empty($res)? FALSE : $res;
 	}
 }
