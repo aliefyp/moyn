@@ -14,7 +14,7 @@
 			<div class="moyn-header">
 				<img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo">
 				<!-- hamburger (sm) -->
-				<nav class="navbar navbar-dark navbar--sm ">
+				<nav class="navbar navbar-dark navbar--sm show-sm">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -23,7 +23,7 @@
 			</div>
 
 			<!-- menu desktop -->
-			<div class="moyn-menu">
+			<div class="moyn-menu hide-sm">
 				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="profile"){echo 'active';}?>" id="profile">
 					<a href="<?php echo base_url(); ?>profile">PROFILE</a>
 					<div class="moyn-content" id="content-profile">
@@ -56,8 +56,8 @@
 				</div>
 				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
 					<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
-					<div class="moyn-content-nav justify-content-end" id="content-project">
-						<div class="proj-nav">
+					<div class="moyn-content-nav justify-content-end">
+						<div class="proj-nav" id="nav-project">
 							<div class="proj-nav__item" id="nav-unbuilt" >&ndash;</div>
 							<div class="proj-nav__item active" id="nav-studio" >0</div>
 							<div class="proj-nav__item" id="nav-realized" >+</div>
@@ -108,8 +108,6 @@
 					</div>
 				</div>
 			</div>
-			
-
 
 			<div class="moyn-extra-content <?php if($this->uri->segment(1)=="purchase"){echo 'active';}?>">
 				<div class="purchasing">
@@ -127,11 +125,11 @@
 						</form>
 					</div>
 				</div>
-			<!-- </div> -->
+			</div>
 
 
 			<!-- menu sm -->
-			<div class="moyn-menu--sm">
+			<div class="moyn-menu--sm show-sm">
 				<div class="collapse" id="navbarToggleExternalContent">
 					<div>
 						<div class="moyn-menu-item--sm <?php if($this->uri->segment(1)=="profile" || $this->uri->segment(1)==""){echo 'active';}?>" id="profile">
@@ -152,21 +150,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="moyn-content--sm" id="content-sm"></div>
+			<div class="moyn-content--sm show-sm" id="content-sm"></div>
 
 			<!-- footer -->
 			<div class="moyn-footer">
 				Copyright &copy 2018 | <span><img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo" height="16"></span>
 			</div>
-
-			<!--  -->
-			<!-- <div class="popup">
-				<div class="overlay">
-					<div class="modal-form purchasing">
-					</div>
-					<div class="close" id="carousel-close">x</div>					
-				</div>
-			</div> -->
 
 			<!-- carousel -->
 			<div class="popup" id="popup-slider">

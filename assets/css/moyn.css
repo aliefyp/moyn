@@ -8,6 +8,12 @@ html, body {
   font-size: 12px;
   box-sizing: border-box; }
 
+.show-sm {
+  display: none; }
+
+.hide-sm {
+  display: block; }
+
 button:focus {
   outline: none; }
 
@@ -37,6 +43,32 @@ button:focus {
   display: inline-block;
   float: left; }
 
+.moyn-content {
+  max-width: 60%;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  margin-top: 32px;
+  display: none;
+  cursor: default;
+  opacity: 0; }
+  .moyn-content--right {
+    text-align: right; }
+
+.moyn-content-nav {
+  width: 60%;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  margin-top: -8px;
+  display: none;
+  cursor: default;
+  opacity: 0;
+  flex-wrap: wrap;
+  float: right;
+  color: rgba(255, 255, 255, 0.3); }
+
 .moyn-menu-item {
   display: block;
   padding: 8px 0;
@@ -44,30 +76,6 @@ button:focus {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   letter-spacing: 1px; }
-  .moyn-menu-item .moyn-content {
-    max-width: 60%;
-    right: 0;
-    position: absolute;
-    text-align: center;
-    margin-top: 32px;
-    display: none;
-    cursor: default;
-    opacity: 0; }
-    .moyn-menu-item .moyn-content--right {
-      text-align: right; }
-  .moyn-menu-item .moyn-content-nav {
-    width: 60%;
-    right: 0;
-    position: absolute;
-    text-align: center;
-    margin: auto;
-    margin-top: -8px;
-    display: none;
-    cursor: default;
-    opacity: 0;
-    flex-wrap: wrap;
-    float: right;
-    color: rgba(255, 255, 255, 0.3); }
   .moyn-menu-item a {
     color: rgba(255, 255, 255, 0.3); }
   .moyn-menu-item a:hover {
@@ -102,7 +110,7 @@ button:focus {
 .moyn-menu--sm {
   display: none;
   margin-bottom: 32px;
-  padding-bottom: 16px; }
+  padding: 0 16px; }
 
 .moyn-menu-item--sm {
   display: inline-block;
@@ -125,8 +133,10 @@ button:focus {
     margin: 0; }
   .moyn-menu-item--sm.active:after {
     width: 0; }
-  .moyn-menu-item--sm .moyn-content--sm {
-    display: none; }
+
+.moyn-content--sm {
+  padding: 0 16px;
+  display: none; }
 
 .moyn-extra-content {
   width: 60%;
@@ -440,22 +450,16 @@ button:focus {
   color: rgba(255, 255, 255, 0.7); }
 
 @media (max-width: 576px) {
-  .moyn-menu {
-    display: none; }
-
-  .moyn-menu--sm {
-    display: block; }
-
-  .navbar--sm {
-    display: inline-block; }
-
-  .moyn-content--sm {
-    display: block; }
-
   .popup .navigation,
   .popup .carousel,
   .popup .carousel img {
-    width: 300px; } }
+    width: 300px; }
+
+  .hide-sm {
+    display: none; }
+
+  .show-sm {
+    display: block; } }
 @media (max-width: 992px) {
   .proj-nav,
   .gallery,

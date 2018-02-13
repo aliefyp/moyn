@@ -43,6 +43,7 @@ const fetchDataProject = function(queryType) {
 					default:
 						break;
 				}
+
 				var thumbDOM = "<div class='gallery__thumb' id='proj-"+id+"' >"
 					thumbDOM += "<div class='gallery__prev' style='background-image: url("+image+")' />"
 					thumbDOM += "<div class='gallery__body'>"
@@ -57,6 +58,13 @@ const fetchDataProject = function(queryType) {
 			var isMobile = $(window).width() <= 576
 			var chunkSize = $(window).width() > 992 ? 8 : 4
 			var groupThumb = arrThumb.chunk(chunkSize)
+
+
+			if (arrThumb.length <= chunkSize) {
+				console.log("yes")
+				$("#gallery-project-prev").hide()
+				$("#gallery-project-next").hide()
+			}
 
 			$.each(groupThumb, function(indexGroup, group) {
 				var groupDOM = "<div class='gallery__column'><div class='gallery__column-inner'>"
@@ -97,6 +105,12 @@ const fetchDataShop = function() {
 			var isMobile = $(window).width() <= 576
 			var chunkSize = $(window).width() > 992 ? 8 : 4
 			var groupThumb = arrThumb.chunk(chunkSize)
+
+
+			if (arrThumb.length <= chunkSize) {
+				$("#gallery-shop-prev").hide()
+				$("#gallery-shop-next").hide()
+			}
 
 			$.each(groupThumb, function(indexGroup, group) {
 				var groupDOM = "<div class='gallery__column'><div class='gallery__column-inner'>"
@@ -160,6 +174,7 @@ const displaySlider = function(table, proj_id, table_id) {
 $(document).ready(function(){
 	var tableImgName = null, tableIdName = null
 	
+	
 	// INITIALIZE GALLERY
 	if (route === "projects") {
 		tableImgName = "img_studio"
@@ -198,13 +213,19 @@ $(document).ready(function(){
 					break;
 				case "projects":
 					$("#content-sm").append($("<div class='c-white mb-16'>PROJECT</div>")).fadeIn()
-					$("#content-sm").append($("#content-project")[0]).fadeIn()
-					$("#content-sm").append($("#content-project")[1]).fadeIn()
+					$("#content-sm").append($("#nav-project")[0]).fadeIn()
+					$("#nav-project").css({"margin-bottom" : "8px"})
+					$("#content-sm").append($("#gallery-project")[0]).fadeIn()
 					break
 				case "contact":			
 					$("#content-sm").append($("<div class='c-white mb-16'>CONTACT</div>")).fadeIn()			
 					$("#content-sm").append($("#content-contact")[0]).fadeIn()
 					break;
+				
+				case "shop":
+					$("#content-sm").append($("<div class='c-white mb-16'>SHOP</div>")).fadeIn()
+					$("#content-sm").append($("#gallery-shop")[0]).fadeIn()
+					break
 			
 				default:
 					break;
