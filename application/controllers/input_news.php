@@ -110,6 +110,7 @@ class Input_news extends MY_Controller {
 		$this->load->model('content_model', 'content');
 		$data['news'] = $this->content->get_content('news');
 		$data['_title'] = 'News List';
+		$this->add_datatable();
 
 		$this->display('admin/news_list', $data);
 	}
@@ -121,5 +122,23 @@ class Input_news extends MY_Controller {
 		$data['_title'] = 'Edit News';
 
 		$this->display('admin/form_news', $data);
+	}
+
+	public function get_img_news(){
+		$id_news = $this->input->post('id_news');
+		$this->load->model('content_model', 'content');
+		$res = $this->content->get_news($id_news);
+
+		echo json_encode($res);
+	}
+
+	public function hapus_news(){
+		$this->load->model('content_model', 'content');
+		$id_news = $this->input->get('id_news');
+		$res = $this->content->delete_news($id_news);
+		$data['_title'] = 'News List';
+
+		redirect('input_news/news_list');
+
 	}
 }
