@@ -96,4 +96,35 @@ class Content_model extends CI_Model {
 		}
 		return false;
 	}
+
+	public function delete_img($table, $id_table, $id){
+		$res = $this->db->delete($table, array($id_table => $id));
+		return $res;
+	}
+
+	public function update_content($data_input, $table, $table_id, $proj_id){
+		$this->db->set($data_input);
+		$this->db->where($table_id, $proj_id);
+		$res = $this->db->update($table);
+
+		if($res){
+			return true;
+		}
+		return false;
+	}
+
+	public function get_item_shop($id_item){
+		$res = $this->db->get_where('shop_item', array('id_item'=>$id_item))->row_array();
+		return $res;
+	}
+
+	public function get_img_item_shop($id_item){
+		$res = $this->db->get_where('img_shop_item', array('id_item'=>$id_item))->result_array();
+		return $res;
+	}
+
+	public function get_news($id){
+		$res = $this->db->get_where('news', array('id_news'=>$id))->row_array();
+		return $res;
+	}
 }

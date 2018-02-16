@@ -13,7 +13,32 @@ class Input_news extends MY_Controller {
 		$this->load->model('content_model', 'content');
 		$judul = $this->input->post('news_title');
 		$desc = $this->input->post('news_desc');
+
+		$id_news = $this->input->post('id_news');
+
 		if($this->input->post()){
+
+		if(!empty($id_news)){
+			$arr = array('judul_news'			=> $judul,
+							'deskripsi_news'	=> $desc,
+							'edited_at'			=> date('Y-m-d H:i:s'),
+							'edited_by'			=> $this->session->userdata('username')
+						);
+			$updt = $this->content->update_content($arr,'news', 'id_news', $id_news);
+
+			if($updt){
+				$upl_res = $this->upload_images($id_news,1);
+				if($upl_res){
+					$data['notif'] = array('type' => 'success', 'message' => 'Data berhasil disimpan');
+					$data['_title'] = 'Input News';
+					redirect('input_news/news_list');
+				}
+			}else{
+				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
+				$data['_title'] = 'Input News';
+				redirect('input_news/news_list');
+			}
+		}else{
 			$arr = array('judul_news'			=> $judul,
 							'deskripsi_news'	=> $desc,
 							'bulan_news'		=> date("F"),
@@ -21,12 +46,11 @@ class Input_news extends MY_Controller {
 							'created_at'		=> date('Y-m-d H:i:s'),
 							'created_by'		=> $this->session->userdata('username')
 						);
-
-		$res = $this->content->save_content($arr,'news');
+			$res = $this->content->save_content($arr,'news');
 
 			if($res){
 				$id = $this->db->insert_id();
-				$upl_res = $this->upload_images($id);
+				$upl_res = $this->upload_images($id,0);
 				if($upl_res){
 					$data['notif'] = array('type' => 'success', 'message' => 'Data berhasil disimpan');
 					$data['_title'] = 'Input News';
@@ -38,9 +62,12 @@ class Input_news extends MY_Controller {
 				$this->display('admin/form_news', $data);
 			}
 		}
+
+			
+		}
 	}
 
-	public function upload_images($id){
+	public function upload_images($id, $edit){
 		$config['upload_path'] 		= './upload';
 		$config['allowed_types']	= 'png|gif|jpg|jpeg';
 		$config['max_size'] 		= '2048000';
@@ -72,9 +99,27 @@ class Input_news extends MY_Controller {
         if(!empty($fileData)){
             //Insert file information into the database
             $this->load->model('content_model', 'content');
+            
             $insert = $this->content->save_img_news($id, $fileData);
             return $insert;
         }
         return false;
+	}
+
+	public function news_list(){
+		$this->load->model('content_model', 'content');
+		$data['news'] = $this->content->get_content('news');
+		$data['_title'] = 'News List';
+
+		$this->display('admin/news_list', $data);
+	}
+
+	public function edit_news(){
+		$this->load->model('content_model', 'content');
+		$id_news = $this->input->get('id_news');
+		$data['news'] = $this->content->get_news($id_news);
+		$data['_title'] = 'Edit News';
+
+		$this->display('admin/form_news', $data);
 	}
 }

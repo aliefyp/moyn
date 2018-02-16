@@ -11,15 +11,15 @@
                   <div class="control-group">                     
                     <label class="control-label" for="news_title">News Title</label>
                     <div class="controls">
-                      <input type="text" class="span3" id="news_title" name="news_title" value="<?php echo empty($result['content']['name']) ? '' : $result['content']['name']; ?>" placeholder="News Title">
-                      <input type="hidden" class="span3" id="id_news" name="id_news" value="<?php echo empty($id_project) ? '' : $id_project;?>">
+                      <input type="text" class="span3" id="news_title" name="news_title" value="<?php echo empty($news['judul_news']) ? '' : $news['judul_news']; ?>" placeholder="News Title">
+                      <input type="hidden" class="span3" id="id_news" name="id_news" value="<?php echo empty($news['id_news']) ? '' : $news['id_news'];?>">
                     </div>    
                   </div>
 
                   <div class="control-group">
                     <label class="control-label" for="news_desc">News Description</label>
                     <div class="controls">
-                      <textarea rows="5" cols="50" type="text" name="news_desc" id="news_desc" placeholder="News Description"></textarea>
+                      <textarea rows="5" cols="50" type="text" name="news_desc" id="news_desc" placeholder="News Description"><?php echo empty($news['deskripsi_news']) ? '' : $news['deskripsi_news'];?></textarea>
                     </div>
                   </div>
                 
@@ -27,6 +27,7 @@
                       <label class="control-label" for="project_img">Image</label>
                       <div class="controls" id="img_area">
                         <input type="file" name="fotos[]" id="foto0" onchange="showImage(this,0)">
+                        <img src="<?php echo empty($news['url_img_news'])? '' : base_url().'upload/'.$news['url_img_news']?>" id="imgctr0" width="250">
                       </div>
                     </div>
 

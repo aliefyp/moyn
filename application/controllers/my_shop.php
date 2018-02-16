@@ -26,25 +26,36 @@ class My_shop extends MY_Controller {
 			$item_status 		= $this->input->post('item_status');
 			$item_price 		= $this->input->post('item_price');
 
+			$item_id = empty($this->input->post('item_id'))? '' : $this->input->post('item_id');
+
 			$data_input = array('name_item' => $item_name,
 								'deskripsi_item' => $item_desc,
 								'active_item' => $item_status,
 								'price_item' => str_replace(".", '', $item_price),
-								'created_at' => date('Y-m-d H:i:s'),
-								'created_by' => $this->session->userdata('username'));
+								'edited_at' => date('Y-m-d H:i:s'),
+								'edited_by' => $this->session->userdata('username'));
 
 			$this->load->model('content_model', 'content');
 
-			if($this->content->save_content($data_input, 'shop_item')){
-				$id = $this->db->insert_id();
-				$res = $this->upload_images($id, 'img_shop_item');
-				$this->session->set_userdata('upload', $res);
-				redirect('my_shop');
+			if(!empty($item_id)){
+					if($this->content->update_content($data_input, 'shop_item', 'id_item', $item_id)){
+						$res = $this->upload_images($item_id, 'img_shop_item', 1);
+						$this->session->set_userdata('upload', $res);
+						redirect('shop_list');
+				}	
+			}else{
+					if($this->content->save_content($data_input, 'shop_item')){
+						$id = $this->db->insert_id();
+						$res = $this->upload_images($id, 'img_shop_item', 0);
+						$this->session->set_userdata('upload', $res);
+						redirect('shop_list');
+				}
 			}
+			
 		}
 	}
 
-	public function upload_images($id, $table_img){
+	public function upload_images($id, $table_img, $edit){
 		$config['upload_path'] 		= './upload';
 		$config['allowed_types']	= 'png|gif|jpg|jpeg';
 		$config['max_size'] 		= '2048000';
@@ -80,10 +91,15 @@ class My_shop extends MY_Controller {
         if(!empty($uploadData)){
             //Insert file information into the database
             $this->load->model('content_model', 'content');
+
+            /*hapus foto dulu, baru upload lagi*/
+            if($edit){
+            	$this->content->delete_img($table_img, 'id_item', $id);
+            }
+
             $insert = $this->content->save_image($uploadData, $table_img);
             return $insert;
         }
-        return false;
 	}
 
 	public function shop_list(){
@@ -92,5 +108,15 @@ class My_shop extends MY_Controller {
 
 		$data['content'] = $this->content->get_content('shop_item');
 		$this->display('admin/shop_list', $data);
+	}
+
+	public function edit_shop(){
+		$id_item = $this->input->get('id_item');
+		$this->load->model('content_model', 'content');
+		$data['shop_item'] = $this->content->get_item_shop($id_item);
+		$data['img_shop_item'] = $this->content->get_img_item_shop($id_item);
+		$data['_title'] = 'Edit Shop Item';
+
+		$this->display('admin/form_shop', $data);
 	}
 }

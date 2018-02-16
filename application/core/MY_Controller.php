@@ -211,6 +211,13 @@ class MY_Controller extends CI_Controller {
                             'menu_title'    => 'News',
                             'menu_icon'     => 'icon-money',
                             'menu_url'      => '/input_news',
+                            'order_number'  => '5'),
+                        13 => array(
+                            'menu_id'       => '13',
+                            'menu_parent'   => '2',
+                            'menu_title'    => 'News',
+                            'menu_icon'     => 'icon-money',
+                            'menu_url'      => '/input_news/news_list',
                             'order_number'  => '5')
                     );
 

@@ -11,27 +11,27 @@
               <thead>
                 <tr>
                   <th> No. </th>
-                  <th> Item Name </th>
-                  <th> Item Description </th>
-                  <th> Price </th>
-                  <th> Active </th>
-                  <th> Action </th>
+                  <th> News Title </th>
+                  <th> News Description </th>
+                  <th> Month </th>
+                  <th> Year </th>
+                  <th> Image </th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  if($content){
-                    foreach ($content as $key => $value) { ?>
+                  if($news){
+                    foreach ($news as $key => $value) { ?>
                       <tr>
                         <td><?php echo $key+1;?></td>
-                        <td><?php echo $value['name_item'];?></td>
-                        <td><?php echo $value['deskripsi_item'];?></td>
-                        <td><?php echo number_format($value['price_item'], 2, ',', '.');?></td>
-                        <td><?php echo $value['active_item'];?></td>
+                        <td><?php echo $value['judul_news'];?></td>
+                        <td><?php echo $value['deskripsi_news'];?></td>
+                        <td><?php echo $value['bulan_news'];?></td>
+                        <td><?php echo $value['tahun_news'];?></td>
                         <td>
                           <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal">Lihat Gambar</a>
-                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'my_shop/edit_shop?id_item='.$value['id_item']?>">Edit</a>
-                          <a class="btn btn-small btn-danger" href="<?php echo base_url();?>" onclick="return confirm('Anda yakin?')">Hapus</a>
+                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'input_news/edit_news?id_news='.$value['id_news']?>">Edit</a>
+                          <a class="btn btn-small btn-danger" href="<?php echo base_url().'input_news/hapus_news?id_news='.$value['id_news']?>" onclick="return confirm('Anda yakin?')">Hapus</a>
                         </td>
                       </tr>
                     <?php }
