@@ -130,6 +130,17 @@ class Content_model extends CI_Model {
 
 	public function delete_news($id){
 		$res = $this->db->delete('news', array('id_news'=>$id));
+	public function save_order($fullname, $email, $quantity, $phone, $address, $message, $id_item){
+		$arr = array(
+			'qty_order'			=> $quantity,
+			'cust_name'			=> $fullname,
+			'cust_email'		=> $email,
+			'cust_phone'		=> $phone,
+			'shipping_addr'	=> $address,
+			'item_order'		=> $id_item,
+		);
+
+		$res = $this->db->insert('order', $arr);
 		return $res;
 	}	
 }
