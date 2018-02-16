@@ -127,4 +127,9 @@ class Content_model extends CI_Model {
 		$res = $this->db->get_where('news', array('id_news'=>$id))->row_array();
 		return $res;
 	}
+
+	public function delete_news($id){
+		$res = $this->db->delete('news', array('id_news'=>$id));
+		return $res;
+	}	
 }

@@ -107,6 +107,7 @@ class My_shop extends MY_Controller {
 		$this->load->model('content_model', 'content');
 
 		$data['content'] = $this->content->get_content('shop_item');
+		$this->add_datatable();
 		$this->display('admin/shop_list', $data);
 	}
 

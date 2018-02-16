@@ -29,7 +29,7 @@
                         <td><?php echo $value['bulan_news'];?></td>
                         <td><?php echo $value['tahun_news'];?></td>
                         <td>
-                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal">Lihat Gambar</a>
+                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal" onclick="show_img('<?php echo $value["id_news"];?>')">Lihat Gambar</a>
                           <a class="btn btn-small btn-warning" href="<?php echo base_url().'input_news/edit_news?id_news='.$value['id_news']?>">Edit</a>
                           <a class="btn btn-small btn-danger" href="<?php echo base_url().'input_news/hapus_news?id_news='.$value['id_news']?>" onclick="return confirm('Anda yakin?')">Hapus</a>
                         </td>
@@ -54,10 +54,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Data Siswa</h4>
       </div>
-      <div class="modal-body" align="center">
-          <table class="table" id="isidetail">
-           
-          </table>
+      <div class="modal-body" align="center" id="isidetail">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -71,8 +68,20 @@
     $('#myTable').dataTable();
   });
 
-  function lihatDetail(id_siswa){
-    
+  function show_img(id){
+    $.ajax({
+      url: '<?php echo base_url()?>input_news/get_img_news',
+      data: {id_news: id},
+      typeData: 'json',
+      type: 'POST',
+      success: function(data){  
+      data = JSON.parse(data);
+        if(data){
+          $('#isidetail').children().remove();
+          $('#isidetail').append('<img src="<?php echo base_url()?>upload/'+data.url_img_news+'" width="250">');
+        }
+      }
+    });
       
   }
 </script>
