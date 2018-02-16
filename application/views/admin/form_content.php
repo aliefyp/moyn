@@ -13,7 +13,7 @@
                     <div class="controls">
                       <input type="text" class="span3" id="project_name" name="project_name" value="<?php echo empty($result['content']['name']) ? '' : $result['content']['name']; ?>" placeholder="Project Name">
                       <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo $project?>">
-                      <input type="hidden" class="span3" id="project_num" name="project_num" value="<?php echo empty($id_project) ? '' : $id_project;?>">
+                      <input type="hidden" class="span3" id="project_id" name="project_id" value="<?php echo empty($id_project) ? '' : $id_project;?>">
                     </div>    
                   </div>
 
@@ -29,8 +29,8 @@
                     <div class="controls">
                       <select name="project_status" id="project_status" class="span2">
                         <option value="-">Select Status</option>
-                        <option value="1" <?php echo ($result['content']['active']) ? 'selected' : ''; ?>>Active</option>
-                        <option value="0" <?php echo ($result['content']['active']) ? '' : 'selected'; ?>>Inactive</option>
+                        <option value="1" <?php echo (!empty($result['content']['active']) && $result['content']['active']) ? 'selected' : ''; ?>>Active</option>
+                        <option value="0" <?php echo (!empty($result['content']['active']) && $result['content']['active']) ? '' : 'selected'; ?>>Inactive</option>
                       </select>
                     </div>                      
                   </div>

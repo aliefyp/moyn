@@ -38,6 +38,14 @@ class Manage_content extends MY_Controller {
 		$data = array_merge($data, $std_data);
 		$this->add_datatable();
 
+		if($this->session->has_userdata('upload')){
+			if($this->session->userdata('upload'))
+				$data['notif'] = array('type' => 'success', 'message' => 'Data berhasil disimpan');
+			else
+				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
+			$this->session->unset_userdata('upload');
+		}
+
 		$this->display('admin/list_content', $data);
 	}
 
