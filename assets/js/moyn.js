@@ -16,6 +16,7 @@ const fetchDataProject = function(queryType) {
 		success: function(result){
 			var json = $.parseJSON(result)
 			var arrThumb = []
+			console.log(json)
 			$.each(json, function(index, item) {
 				var id = "", name = "", type = "", image = ""
 				switch (queryType) {
@@ -43,6 +44,7 @@ const fetchDataProject = function(queryType) {
 					default:
 						break;
 				}
+
 				var thumbDOM = "<div class='gallery__thumb' id='proj-"+id+"' >"
 					thumbDOM += "<div class='gallery__prev' style='background-image: url("+image+")' />"
 					thumbDOM += "<div class='gallery__body'>"
@@ -57,6 +59,14 @@ const fetchDataProject = function(queryType) {
 			var isMobile = $(window).width() <= 576
 			var chunkSize = $(window).width() > 992 ? 8 : 4
 			var groupThumb = arrThumb.chunk(chunkSize)
+
+			// if (arrThumb.length <= chunkSize) {
+			// 	$("#gallery-project-prev").hide()
+			// 	$("#gallery-project-next").hide()
+			// } else {
+			// 	$("#gallery-project-prev").show()
+			// 	$("#gallery-project-next").show()
+			// }
 
 			$.each(groupThumb, function(indexGroup, group) {
 				var groupDOM = "<div class='gallery__column'><div class='gallery__column-inner'>"
@@ -86,7 +96,7 @@ const fetchDataShop = function() {
 						thumbDOM += "<div class='gallery__prev' style='background-image: url("+item.url_img_item+")' />"
 						thumbDOM += "<div class='gallery__body'>"
 							thumbDOM += "<div class='gallery__title'>"+item.name_item+"</div>"
-							thumbDOM += "<div class='gallery__desc'>"+item.price_item+"</div>"
+							thumbDOM += "<div class='gallery__desc mt-16'>Rp. "+item.price_item+"</div>"
 						thumbDOM += "</div>"
 					thumbDOM += "</div>"
 				thumbDOM += "</a>"
@@ -97,6 +107,12 @@ const fetchDataShop = function() {
 			var isMobile = $(window).width() <= 576
 			var chunkSize = $(window).width() > 992 ? 8 : 4
 			var groupThumb = arrThumb.chunk(chunkSize)
+
+
+			// if (arrThumb.length <= chunkSize) {
+			// 	$("#gallery-shop-prev").hide()
+			// 	$("#gallery-shop-next").hide()
+			// }
 
 			$.each(groupThumb, function(indexGroup, group) {
 				var groupDOM = "<div class='gallery__column'><div class='gallery__column-inner'>"
@@ -160,6 +176,7 @@ const displaySlider = function(table, proj_id, table_id) {
 $(document).ready(function(){
 	var tableImgName = null, tableIdName = null
 	
+	
 	// INITIALIZE GALLERY
 	if (route === "projects") {
 		tableImgName = "img_studio"
@@ -175,12 +192,22 @@ $(document).ready(function(){
 	}
 	
 	// PROFILE
-	$(".moyn__founders-img--left > img").hover(function(){
-		$(".moyn__founders-img--right > .desc").fadeToggle( "fast", "linear" )
+	$(".moyn-founders--left > img").mouseover(function(){
+		$(".moyn-founders--right > .desc").fadeIn( "fast", "linear" )
+		$(this).attr('src', baseUrl+"/assets/img/founders/left-1.png")
+	})
+	$(".moyn-founders--left > img").mouseleave(function(){
+		$(".moyn-founders--right > .desc").fadeOut( "fast", "linear" )
+		$(this).attr('src', baseUrl+"/assets/img/founders/left-0.png")
 	})
 
-	$(".moyn__founders-img--right > img").hover(function(){
-		$(".moyn__founders-img--left > .desc").fadeToggle( "fast", "linear" )
+	$(".moyn-founders--right > img").mouseover(function(){
+		$(".moyn-founders--left > .desc").fadeIn( "fast", "linear" )
+		$(this).attr('src', baseUrl+"/assets/img/founders/right-1.png")
+	})
+	$(".moyn-founders--right > img").mouseleave(function(){
+		$(".moyn-founders--left > .desc").fadeOut( "fast", "linear" )
+		$(this).attr('src', baseUrl+"/assets/img/founders/right-0.png")
 	})
 
 
@@ -190,41 +217,33 @@ $(document).ready(function(){
 
 		if($(window).width() <= 576) {
 			// $(".navbar-toggler").click()		
-			$("#content-mobile").empty()
+			$("#content-sm").empty()
 			switch (route) {
 				case "profile":
-					$("#content-mobile").append($("<div class='c-white'>PROFILE</div>")).fadeIn()
-					$("#content-mobile").append($("#content-profile")[0]).fadeIn()
-					$("#content-profile").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
-					})
+					$("#content-sm").append($("<div class='c-white mb-16'>PROFILE</div>")).fadeIn()
+					$("#content-sm").append($("#content-profile")[0]).fadeIn()
 					break;
 				case "projects":
-					$("#content-mobile").append($("<div class='c-white'>PROJECT</div>")).fadeIn()
-					$("#content-mobile").append($("#content-project")[0]).fadeIn()
-					$("#content-project").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
+					$("#content-sm").append($("<div class='c-white mb-16'>PROJECT</div>")).fadeIn()
+					$("#content-sm").append($("#gallery-project")[0]).fadeIn()
+					$("#gallery-project").css({
+						"float"  : "none",
+						"margin" : "auto",
 					})
 					break
 				case "contact":			
-					$("#content-mobile").append($("<div class='c-white'>CONTACT</div>")).fadeIn()			
-					$("#content-mobile").append($("#content-contact")[0]).fadeIn()
-					$("#content-contact").css({
-						"opacity": 1,
-						"display": "block",
-						"max-width": "100%",
-						"text-align": "left",
-						"position": "initial"
-					})
+					$("#content-sm").append($("<div class='c-white mb-16'>CONTACT</div>")).fadeIn()			
+					$("#content-sm").append($("#content-contact")[0]).fadeIn()
 					break;
+				
+				case "shop":
+					$("#content-sm").append($("<div class='c-white mb-16'>SHOP</div>")).fadeIn()
+					$("#content-sm").append($("#gallery-shop")[0]).fadeIn()
+					$("#gallery-shop").css({
+						"float"  : "none",
+						"margin" : "auto",
+					})
+					break
 			
 				default:
 					break;
@@ -233,7 +252,7 @@ $(document).ready(function(){
 	// })
 
 	// FOOTER
-	$(".moyn__footer")[0].style.top = window.innerHeight - $(".moyn__footer")[0].clientHeight - 8
+	// $(".moyn-footer")[0].style.top = window.innerHeight - $(".moyn-footer")[0].clientHeight - 8
 
 
 	// PROJECT
@@ -242,6 +261,15 @@ $(document).ready(function(){
 		$("#nav-studio").removeClass("active")
 		$("#nav-realized").removeClass("active")
 		$("#nav-unbuilt").addClass("active")
+
+		tableImgName = "img_unbuilt_project"
+		tableIdName = "id_up"
+		fetchDataProject("unbuilt")
+	})
+	$("#control-unbuilt").click(function() {
+		$("#control-studio").removeClass("active")
+		$("#control-realized").removeClass("active")
+		$("#control-unbuilt").addClass("active")
 
 		tableImgName = "img_unbuilt_project"
 		tableIdName = "id_up"
@@ -257,6 +285,16 @@ $(document).ready(function(){
 		tableIdName = "id_studio"
 		fetchDataProject("studio")
 	})
+	$("#control-studio").click(function() {
+		$("#control-studio").addClass("active")
+		$("#control-realized").removeClass("active")
+		$("#control-unbuilt").removeClass("active")
+
+		tableImgName = "img_studio"
+		tableIdName = "id_studio"
+		fetchDataProject("studio")
+	})
+
 
 	$("#nav-realized").click(function() {
 		$("#nav-studio").removeClass("active")
@@ -267,6 +305,23 @@ $(document).ready(function(){
 		tableIdName = "id_rp"
 		fetchDataProject("realized")		
 	})
+	$("#control-realized").click(function() {
+		$("#control-studio").removeClass("active")
+		$("#control-realized").addClass("active")
+		$("#control-unbuilt").removeClass("active")
+
+		tableImgName = "img_realized_project"
+		tableIdName = "id_rp"
+		fetchDataProject("realized")		
+	})
+
+
+	// HAMBURGER
+	$("#hamburger-menu").click(function() {
+		$(this).toggleClass("open")
+		$("#sidebar-menu").toggleClass("active")
+		$("#sidebar-overlay").toggle()
+	})
 
 
 
@@ -276,9 +331,10 @@ $(document).ready(function(){
 	$("#gallery-project-prev").click(function() {
 		var limitLeft = 1
 		if (galleryPosition > limitLeft) {
+			galleryPosition -= 1
 			$("#gallery-project").animate({scrollLeft: columnWidth * galleryPosition - columnWidth}, 500)
 			
-			if (galleryPosition == limitLeft) {this.hide()}			
+			
 		}
 	})
 	$("#gallery-project-next").click(function() {
@@ -287,12 +343,21 @@ $(document).ready(function(){
 			$("#gallery-project").animate({scrollLeft: columnWidth * galleryPosition}, 500)
 			galleryPosition++
 
-			if (galleryPosition == limitRight) {this.hide()}
+			
 		}
 	})
 
+	// $("#gallery-project").addEventListener("scroll", function() {
+	// 	if (galleryPosition == limitLeft) {$("#gallery-project-prev").hide()}		
+	// 	else {$("#gallery-project-prev").show()}	
+
+	// 	if (galleryPosition == limitRight) {$("#gallery-project-next").hide()}
+	// 	else {$("#gallery-project-next").show()}	
+	// })
+
+
 	// CAROUSEL
-	var columnWidth = $(window).width() > 576 ? 488 : 308
+	var carouselWidth = $(window).width() > 576 ? 488 : 308
 
 	$(document).on("click", ".gallery__thumb", function() {
 		var table = tableImgName
@@ -306,13 +371,13 @@ $(document).ready(function(){
 		var limitLeft = 1
 		if (carouselPosition > limitLeft) {
 			carouselPosition -= 1		
-			$("#carousel").animate({scrollLeft: columnWidth * carouselPosition - columnWidth}, 500)
+			$("#carousel").animate({scrollLeft: carouselWidth * carouselPosition - carouselWidth}, 500)
 		}
 	})
 	$("#carousel-nav-next").click(function() {
-		var limitRight = $("#carousel")[0].scrollWidth / columnWidth
+		var limitRight = $("#carousel")[0].scrollWidth / carouselWidth
 		if (carouselPosition < limitRight) {
-			$("#carousel").animate({scrollLeft: columnWidth * carouselPosition}, 500)
+			$("#carousel").animate({scrollLeft: carouselWidth * carouselPosition}, 500)
 			carouselPosition++
 		}
 	})

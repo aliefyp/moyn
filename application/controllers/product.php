@@ -7,10 +7,12 @@ class Product extends CI_Controller {
 		$data['title'] = 'moyn | PRODUCT';
 
 		$this->load->model('content_model');
-		$id = $this->input->get('id');
-		$product = $this->content_model->get_product($id);		
-		$data['product'] = $product;
+		$id 							= $this->input->get('id');
+		$product 					= $this->content_model->get_product($id);		
 
+		$data['product'] 	= $product;
+
+		$data['view_product'] = $this->load->view('product-detail', $data, TRUE);
     $this->load->view('home',$data);
 	}
 }

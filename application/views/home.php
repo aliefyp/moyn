@@ -11,86 +11,89 @@
 
 	<body>
 		<div class="container relative">
-			<div class="moyn__header">
+			<div class="moyn-header">
 				<img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo">
-				<!-- hamburger (mobile) -->
-				<nav class="navbar navbar-dark moyn__navbar--mobile ">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-				</nav>
-				<!-- end of hamburger -->
+				<div class="moyn-hamburger-holder show-sm">
+					<div class="moyn-hamburger" id="hamburger-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
 			</div>
 
 			<!-- menu desktop -->
-			<div class="moyn__menu">
-				<div class="moyn__menu-item  <?php if($this->uri->segment(1)=="profile"){echo 'active';}?>" id="profile">
+			<div class="moyn-menu hide-sm">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="profile"){echo 'active';}?>" id="profile">
 					<a href="<?php echo base_url(); ?>profile">PROFILE</a>
-					<div class="moyn__menu-content" id="content-profile">
-						<p>Established in 2018, moyn is an architectural design studio based on the countryside of central Java.<br />
-						the balance between spaces inside and outside, environment and architecture, human and architecture.<br />
-						moyn architecture is seeking for equilibrium, a pursuit of idea to stand between them</p>
-						<div class="moyn__founders-img">
-							<div class="moyn__founders-img--left">
-								<img src="http://i65.tinypic.com/ibw8et.png" alt="moyn-founders">
-								<div class="desc">
-									<div>Aldila Septiano |</div>
-									<div>Born in Surabaya, Indonesia |</div>
-									<div>Graduated from Sepuluh Nopember Institute of Technology |</div>
-									<div>Master degree of Architecture |</div>
-									<div>Established moyn |</div>
+					<div class="moyn-content">
+						<div id="content-profile">
+							<p class="mb-16">Established in 2018, moyn is an architectural design studio based on the countryside of central Java.<br />
+							the balance between spaces inside and outside, environment and architecture, human and architecture.<br />
+							moyn architecture is seeking for equilibrium, a pursuit of idea to stand between them</p>
+							<div class="moyn-founders">
+								<div class="moyn-founders--left">
+									<img src="<?php echo base_url(); ?>assets/img/founders/left-0.png" alt="moyn-founders">
+									<div class="desc">
+										<div>Aldila Septiano |</div>
+										<div>Born in Surabaya, Indonesia |</div>
+										<div>Graduated from Sepuluh Nopember Institute of Technology |</div>
+										<div>Master degree of Architecture |</div>
+										<div>Established moyn |</div>
+									</div>
 								</div>
-							</div>
-							<div class="moyn__founders-img--right">
-								<img src="http://i65.tinypic.com/ibw8et.png" alt="moyn-founders">
-								<div class="desc">
-									<div>| Ra'id N. Naufal</div>
-									<div>| Born in Magelang, Indonesia</div>
-									<div>| Graduated from Sepuluh Nopember Institute of Technology</div>
-									<div>| Works at studio tonton</div>
-									<div>| Established moyn</div>
+								<div class="moyn-founders--right">
+									<img src="<?php echo base_url(); ?>assets/img/founders/right-0.png" alt="moyn-founders">
+									<div class="desc">
+										<div>| Ra'id N. Naufal</div>
+										<div>| Born in Magelang, Indonesia</div>
+										<div>| Graduated from Sepuluh Nopember Institute of Technology</div>
+										<div>| Works at studio tonton</div>
+										<div>| Established moyn</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
 					<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
-					<div class="moyn__content-nav justify-content-end" id="content-project">
-						<div class="proj-nav">
+					<div class="moyn-content-nav justify-content-end">
+						<div class="proj-nav hide-sm" id="nav-project">
 							<div class="proj-nav__item" id="nav-unbuilt" >&ndash;</div>
 							<div class="proj-nav__item active" id="nav-studio" >0</div>
 							<div class="proj-nav__item" id="nav-realized" >+</div>
 						</div>
 					</div>
-					<div class="moyn__menu-content">
-						<!-- <div class="moyn__gallery" id="gallery"></div> -->
+					<div class="moyn-content" id="content-project">
 						<div class="gallery" id="gallery-project"></div>
 						<div class="proj-next" id="gallery-project-next">&gt;</div>
 						<div class="proj-prev" id="gallery-project-prev">&lt;</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
 					<a href="<?php echo base_url(); ?>contact">CONTACT</a>
-					<div class="moyn__menu-content ta-right" id="content-contact">
-						<div class="mb-16">
-							<div>Jl.Carikan Gondosuli</div>
-							<div>Muntailan Magelang, 56415</div>
-							<div>Indonesia</div>
-							<div>7.5676, 110.2842 E</div>
-						</div>
-						<div>
-							<div>+6281 3900 7 2121</div>
-							<div>studio.moyn@gmail.com</div>
+					<div class="moyn-content moyn-content--right">
+						<div id="content-contact">
+							<div class="mb-16">
+								<div>Jl.Carikan Gondosuli</div>
+								<div>Muntailan Magelang, 56415</div>
+								<div>Indonesia</div>
+								<div>7.5676, 110.2842 E</div>
+							</div>
+							<div>
+								<div>+6281 3900 7 2121</div>
+								<div>studio.moyn@gmail.com</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
 					<a href="<?php echo base_url(); ?>news">NEWS</a>			
 				</div>
-				<div class="moyn__menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
+				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
 					<a href="<?php echo base_url(); ?>shop">SHOP</a>		
-					<div class="moyn__menu-content">
+					<div class="moyn-content">
 						<div class="gallery" id="gallery-shop"></div>
 						<div class="proj-next" id="gallery-shop-next">&gt;</div>
 						<div class="proj-prev" id="gallery-shop-prev">&lt;</div>
@@ -98,65 +101,50 @@
 				</div>
 			</div>
 
-			<div class="moyn__extra-content <?php if($this->uri->segment(1)=="product"){echo 'active';}?>">
-				<div class="purchasing">
-					<img src="<?php echo $product->url_img_item ?>" alt="<?php echo $product->name_item ?>" class="product-img" />
-					<div class="product-desc">
-						<div class="title"><?php echo $product->name_item ?></div>
-						<div class="description"><?php echo $product->deskripsi_item ?></div>
-						<button class="purchase" onclick="goBack()">BACK</button>
-						<button class="purchase">BUY</button>
-						<form action="" class="mt-32" id="purchase-form">
-							<div class="mb-16">Please fill following form</div>
-							<input class="mb-8" type="text" placeHolder="Fullname" required autofocus />
-							<input class="mb-8" type="text" placeHolder="Email" required />
-							<input class="mb-8" type="text" placeHolder="Quantity" required />
-							<input class="mb-8" type="text" placeHolder="Phone" required />
-							<textarea class="mb-8" cols="30" rows="3" placeHolder="Shipping Address" required></textarea>
-							<textarea class="mb-8" cols="30" rows="3" placeHolder="Message" required></textarea>
-						</form>
-					</div>
-				</div>
-			</div>
+			
+
+			<?php if(isset($view_product)) echo $view_product; ?>
+			<?php if(isset($view_purchase)) echo $view_purchase; ?>
 
 
-			<!-- menu mobile -->
-			<div class="moyn__menu--mobile">
-				<div class="collapse" id="navbarToggleExternalContent">
-					<div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="profile" || $this->uri->segment(1)==""){echo 'active';}?>" id="profile">
-							<a href="<?php echo base_url(); ?>profile">PROFILE</a>
-						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
-							<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
-						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
-							<a href="<?php echo base_url(); ?>contact">CONTACT</a>
-						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
-							<a href="<?php echo base_url(); ?>news">NEWS</a>
-						</div>
-						<div class="moyn__menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
-							<a href="<?php echo base_url(); ?>shop">SHOP</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="moyn__content--mobile" id="content-mobile"></div>
+			<!-- content sm -->
+			<div class="moyn-content--sm show-sm" id="content-sm"></div>
 
 			<!-- footer -->
-			<div class="moyn__footer">
+			<!-- <div class="moyn-footer">
 				Copyright &copy 2018 | <span><img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo" height="16"></span>
+			</div> -->
+
+			<!-- sidebar (mobile) -->
+			<div class="moyn-overlay" id="sidebar-overlay"></div>
+			<div class="moyn-sidebar show-sm" id="sidebar-menu">
+				<ul>
+					<li class="<?php if($this->uri->segment(1)=="profile" || $this->uri->segment(1)==""){echo 'active';}?>" id="profile">
+						<a href="<?php echo base_url(); ?>profile">PROFILE</a>
+					</li>
+					<li class="<?php if($this->uri->segment(1)=="projects"){echo 'active';}?>" id="projects">
+						<a href="<?php echo base_url(); ?>projects">PROJECTS</a>
+					</li>
+					<li class="<?php if($this->uri->segment(1)=="contact"){echo 'active';}?>" id="contact">
+						<a href="<?php echo base_url(); ?>contact">CONTACT</a>
+					</li>
+					<li class="<?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
+						<a href="<?php echo base_url(); ?>news">NEWS</a>
+					</li>
+					<li class="<?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
+						<a href="<?php echo base_url(); ?>shop">SHOP</a>
+					</li>
+				</ul>
 			</div>
 
-			<!--  -->
-			<!-- <div class="popup">
-				<div class="overlay">
-					<div class="modal-form purchasing">
-					</div>
-					<div class="close" id="carousel-close">x</div>					
+			<!-- project control (mobile) -->
+			<div class="moyn-control__holder show-sm <?php if($this->uri->segment(1) != "projects"){echo 'hide';}?>">
+				<div class="moyn-control">
+					<div class="moyn-control__item" id="control-unbuilt">&ndash;</div>
+					<div class="moyn-control__item active" id="control-studio">0</div>
+					<div class="moyn-control__item" id="control-realized">+</div>
 				</div>
-			</div> -->
+			</div>
 
 			<!-- carousel -->
 			<div class="popup" id="popup-slider">
