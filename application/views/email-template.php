@@ -1,28 +1,43 @@
-<?php ?>
+<!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <meta charset="utf-8" />
+  </head>
   <body>
-    <div style="margin-bottom:32px">Dear <?php echo $fullname; ?></div>
-    <div style="margin-bottom:16px">Your order will be proccessed soon. Our team will contact you shortly.</div>
-    <table style="margin-bottom:32px">
+    <div style="margin-bottom:32px; font-size=18px">Pesanan Masuk! [automated]</div>
+    <div style="margin-bottom:16px">Pesanan menunggu respon: </div>
+    <table style="margin-bottom:16px">
       <tr>
-        <td>Item</td>
-        <td>: <?php echo $item_name; ?></td>
+        <td>Nama</td>
+        <td>: <?php echo $fullname; ?></td>
       </tr>
       <tr>
-        <td>Quantity</td>
+        <td>Email</td>
+        <td>: <?php echo $email; ?></td>
+      </tr>
+      <tr>
+        <td>No. Telfon</td>
+        <td>: <?php echo $phone; ?></td>
+      </tr>
+      <tr>
+        <td>Item</td>
+        <td>: <?php echo $product->name_item; ?></td>
+      </tr>
+      <tr>
+        <td>Jumlah</td>
         <td>: <?php echo $quantity; ?></td>
       </tr>
       <tr>
-        <td>Address</td>
+        <td>Alamat</td>
         <td>: <?php echo $address; ?></td>
       </tr>
       <tr>
-        <td>Message</td>
+        <td>Pesan</td>
         <td>: <?php echo $message; ?></td>
       </tr>
     </table>
-    <div>Best regards,</div>
-    <div>MOYN team</div>
+    <div style="margin-bottom:32px;">Segera respon pesanan ini ke alamat email <?php echo $email; ?> atau ke nomor <?php echo $phone; ?></div>
+    <div>Regards,</div>
+    <div>moyn team</div>
   </body>
 </html>

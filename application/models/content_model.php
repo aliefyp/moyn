@@ -43,9 +43,6 @@ class Content_model extends CI_Model {
 		}
 
 		$data = $this->db->query("select distinct * from ".$table_name." a inner join ".$table_img_name." b on a.".$id_project."=b.".$id_project." group by a.".$id_project);
-
-		$data = $this->db->query("select * from ".$table_name);
-
 		return $data->result();
 	}
 
