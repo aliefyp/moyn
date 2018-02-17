@@ -16,7 +16,6 @@ const fetchDataProject = function(queryType) {
 		success: function(result){
 			var json = $.parseJSON(result)
 			var arrThumb = []
-			console.log(json)
 			$.each(json, function(index, item) {
 				var id = "", name = "", type = "", image = ""
 				switch (queryType) {
@@ -89,6 +88,7 @@ const fetchDataShop = function() {
 		success: function(result){
 			
 			var json = $.parseJSON(result)
+			console.log(json)
 			var arrThumb = []
 			$.each(json, function(index, item) {
 				var thumbDOM = "<a href='"+baseUrl+"product?id="+item.id_item+"'>"
@@ -127,6 +127,10 @@ const fetchDataShop = function() {
 };
 
 const displaySlider = function(table, proj_id, table_id) {
+	console.log(table)
+	console.log(proj_id)
+	console.log(table_id)
+	console.log(baseUrl)
 	$("#carousel").empty()
 	
 	$.ajax({
@@ -138,6 +142,7 @@ const displaySlider = function(table, proj_id, table_id) {
 			table_id: table_id,
 		},
 		success: function(result){
+			console.log(result)
 			var json = $.parseJSON(result)
 			var arrThumb = []
 			$.each(json, function(index, item) {
@@ -193,21 +198,29 @@ $(document).ready(function(){
 	
 	// PROFILE
 	$(".moyn-founders--left > img").mouseover(function(){
-		$(".moyn-founders--right > .desc").fadeIn( "fast", "linear" )
+		$(".moyn-founders--right > .desc").fadeIn( 700, "linear" )
+		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/left-1.png")
+		$(this).fadeIn( 350, "linear" )		
 	})
 	$(".moyn-founders--left > img").mouseleave(function(){
-		$(".moyn-founders--right > .desc").fadeOut( "fast", "linear" )
+		$(".moyn-founders--right > .desc").fadeOut( 700, "linear" )
+		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/left-0.png")
+		$(this).fadeIn( 350, "linear" )		
 	})
 
 	$(".moyn-founders--right > img").mouseover(function(){
-		$(".moyn-founders--left > .desc").fadeIn( "fast", "linear" )
+		$(".moyn-founders--left > .desc").fadeIn( 700, "linear" )
+		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/right-1.png")
+		$(this).fadeIn( 350, "linear" )		
 	})
 	$(".moyn-founders--right > img").mouseleave(function(){
-		$(".moyn-founders--left > .desc").fadeOut( "fast", "linear" )
+		$(".moyn-founders--left > .desc").fadeOut( 700, "linear" )
+		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/right-0.png")
+		$(this).fadeIn( 350, "linear" )		
 	})
 
 
