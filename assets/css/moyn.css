@@ -177,7 +177,8 @@ button:focus {
 .moyn-extra-content {
   width: 60%;
   float: left;
-  padding-bottom: 64px; }
+  padding-bottom: 64px;
+  animation: fadeIn 1s ease-in-out forwards; }
   .moyn-extra-content.active {
     display: inline-block;
     animation: fadeIn 1s ease-in-out forwards; }
