@@ -30,7 +30,7 @@ class Purchase extends CI_Controller {
 		$product 	= $this->content_model->get_product($id_item);	
 		
 		if ($res == true) {
-			$this->send_email($fullname, $email, $quantity, $address, $message, $product);
+			$this->send_email($fullname, $email, $quantity, $phone, $address, $message, $product);
 		}
 		
 		$data['title'] = 'moyn | PURCHASE';		
@@ -41,13 +41,16 @@ class Purchase extends CI_Controller {
 		$this->load->view('home',$data);
 	}
 
-	public function send_email($fullname, $email, $quantity, $address, $message, $product) {
+	public function send_email($fullname, $email, $quantity, $phone, $address, $message, $product) {
 		// email data
 		$data['fullname']		= $fullname;
-		$data['item_name']	= $product['name_item'];
+		$data['email']			= $email;
+		$data['product']		= $product;
 		$data['quantity']		= $quantity;
 		$data['address']		= $address;
 		$data['message']		= $message;
+		$data['phone']			= $phone;
+
 
 		// load email template
 		$email_content 			= $this->load->view('email-template', $data, TRUE);
@@ -66,10 +69,10 @@ class Purchase extends CI_Controller {
 
 		$this->load->library('email', $config);
 
-		$this->email->from('aliefyp@gmail.com', 'Alief Priyanto');
-		$this->email->to('alief.priyanto@tokopedia.com');
+		$this->email->from('aliefyp@gmail.com', 'moyn');
+		$this->email->to('exactinimas@gmail.com');
 
-		$this->email->subject('Email Test Moyn');
+		$this->email->subject('Pesanan masuk!');
 		$this->email->message($email_content);
 		
 		if ($this->email->send()) {

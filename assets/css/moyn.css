@@ -346,6 +346,7 @@ button:focus {
   position: absolute;
   right: -24px;
   top: 50%;
+  transform: translateY(-50%);
   font-size: 16px;
   cursor: pointer; }
 
@@ -354,6 +355,7 @@ button:focus {
   position: absolute;
   left: -24px;
   top: 50%;
+  transform: translateY(-50%);
   font-size: 16px;
   cursor: pointer; }
 

@@ -17,6 +17,7 @@ const fetchDataProject = function(queryType) {
 			var json = $.parseJSON(result)
 			var arrThumb = []
 			$.each(json, function(index, item) {
+				console.log(item)
 				var id = "", name = "", type = "", image = ""
 				switch (queryType) {
 					case "unbuilt":
@@ -201,26 +202,26 @@ $(document).ready(function(){
 		$(".moyn-founders--right > .desc").fadeIn( 700, "linear" )
 		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/left-1.png")
-		$(this).fadeIn( 350, "linear" )		
+		// $(this).fadeIn( 350, "linear" )		
 	})
 	$(".moyn-founders--left > img").mouseleave(function(){
 		$(".moyn-founders--right > .desc").fadeOut( 700, "linear" )
 		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/left-0.png")
-		$(this).fadeIn( 350, "linear" )		
+		// $(this).fadeIn( 350, "linear" )		
 	})
 
 	$(".moyn-founders--right > img").mouseover(function(){
 		$(".moyn-founders--left > .desc").fadeIn( 700, "linear" )
 		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/right-1.png")
-		$(this).fadeIn( 350, "linear" )		
+		// $(this).fadeIn( 350, "linear" )		
 	})
 	$(".moyn-founders--right > img").mouseleave(function(){
 		$(".moyn-founders--left > .desc").fadeOut( 700, "linear" )
 		// $(this).fadeOut( 350, "linear" )
 		$(this).attr('src', baseUrl+"/assets/img/founders/right-0.png")
-		$(this).fadeIn( 350, "linear" )		
+		// $(this).fadeIn( 350, "linear" )		
 	})
 
 

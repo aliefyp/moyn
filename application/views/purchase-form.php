@@ -7,7 +7,8 @@
       <form	
         action="<?php echo base_url(); ?>purchase/save_order"
         class="mt-32"
-        id="purchase-form">
+        id="purchase-form"
+        method="POST">
         <div class="mb-16">Please fill following form</div>
         <input class="hide" name="id_item" type="text" value="<?php echo $product->id_item; ?>"></input>
         <input class="mb-8" name="fullname" type="text" placeHolder="Fullname" required autofocus />
