@@ -144,7 +144,9 @@ class Content_model extends CI_Model {
 	}
 
 	public function get_orders(){
-		$res = $this->db->get('order')->result_array();
+		$this->db->from('order');
+		$this->db->order_by('created_at', 'desc');
+		$res = $this->db->get()->result_array();
 		return empty($res)? FALSE : $res;
 	}
 }
