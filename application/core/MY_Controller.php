@@ -203,7 +203,7 @@ class MY_Controller extends CI_Controller {
                             'menu_parent'   => NULL,
                             'menu_title'    => 'Order',
                             'menu_icon'     => 'icon-money',
-                            'menu_url'      => '/url',
+                            'menu_url'      => '/order',
                             'order_number'  => '3'),
                         11 => array(
                             'menu_id'       => '12',
