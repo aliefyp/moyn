@@ -141,5 +141,10 @@ class Content_model extends CI_Model {
 
 		$res = $this->db->insert('order', $arr);
 		return $res;
-	}	
+	}
+
+	public function get_orders(){
+		$res = $this->db->get('order')->result_array();
+		return empty($res)? FALSE : $res;
+	}
 }

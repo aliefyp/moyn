@@ -11,28 +11,28 @@
               <thead>
                 <tr>
                   <th> No. </th>
-                  <th> News Title </th>
-                  <th> News Description </th>
-                  <th> Month </th>
-                  <th> Year </th>
-                  <th> Image </th>
+                  <th> Fullname </th>
+                  <th> Email </th>
+                  <th> Phone </th>
+                  <th> Shipping Address </th>
+                  <th> Item </th>
+                  <th> Quantity </th>
+                  <th> Order Time </th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  if($news){
-                    foreach ($news as $key => $value) { ?>
+                  if($orders){
+                    foreach ($orders as $key => $value) { ?>
                       <tr>
                         <td><?php echo $key+1;?></td>
-                        <td><?php echo $value['judul_news'];?></td>
-                        <td><?php echo $value['deskripsi_news'];?></td>
-                        <td><?php echo $value['bulan_news'];?></td>
-                        <td><?php echo $value['tahun_news'];?></td>
-                        <td>
-                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal" onclick="show_img('<?php echo $value["id_news"];?>')">Lihat Gambar</a>
-                          <a class="btn btn-small btn-warning" href="<?php echo base_url().'input_news/edit_news?id_news='.$value['id_news']?>">Edit</a>
-                          <a class="btn btn-small btn-danger" href="<?php echo base_url().'input_news/hapus_news?id_news='.$value['id_news']?>" onclick="return confirm('Anda yakin?')">Hapus</a>
-                        </td>
+                        <td><?php echo $value['cust_name'];?></td>
+                        <td><?php echo $value['cust_email'];?></td>
+                        <td><?php echo $value['cust_phone'];?></td>
+                        <td><?php echo $value['shipping_addr'];?></td>
+                        <td><?php echo $value['item_order'];?></td>
+                        <td><?php echo $value['qty_order'];?></td>
+                        <td><?php echo $value['created_at'];?></td>
                       </tr>
                     <?php }
                   }
@@ -52,7 +52,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Detail News</h4>
+        <h4 class="modal-title">Data Siswa</h4>
       </div>
       <div class="modal-body" align="center" id="isidetail">
       </div>
