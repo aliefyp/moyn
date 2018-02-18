@@ -6,6 +6,7 @@ class Order extends MY_Controller {
 		$data['_title'] = 'Orders List';
 		$this->load->model('content_model', 'content');
 		$data['orders'] = $this->content->get_orders();
+		$this->add_datatable();
 
 		$this->display('admin/order_list', $data);
 	}
