@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/moyn.css">
-		<link rel="icon" href="<?php echo base_url(); ?>assets/img/logo/moyn.png" type="image/gif" sizes="16x16">
+		<link rel="icon" href="<?php echo base_url(); ?>assets/img/logo/favicon.png" type="image/gif" sizes="16x16">
 	</head>
 
 	<body>
@@ -91,6 +91,12 @@
 				</div>
 				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="news"){echo 'active';}?>" id="news">
 					<a href="<?php echo base_url(); ?>news">NEWS</a>			
+					<div class="moyn-content">
+						<div id="content-news">
+							<ul class="moyn-accordion" id="news_accordion">
+							</ul>
+						</div>
+					</div>
 				</div>
 				<div class="moyn-menu-item <?php if($this->uri->segment(1)=="shop"){echo 'active';}?>" id="shop">
 					<a href="<?php echo base_url(); ?>shop">SHOP</a>		
@@ -102,10 +108,9 @@
 				</div>
 			</div>
 
-			
-
 			<?php if(isset($view_product)) echo $view_product; ?>
 			<?php if(isset($view_purchase)) echo $view_purchase; ?>
+			<?php if(isset($view_news)) echo $view_news; ?>
 
 
 			<!-- content sm -->
@@ -160,7 +165,13 @@
 						<div class="navigation__prev" id="carousel-nav-prev"><</div>
 						<div class="navigation__next" id="carousel-nav-next">></div>
 					</div>
-					<div class="close" id="carousel-close">x</div>
+					<div class="moyn-hamburger-holder">
+						<div class="moyn-hamburger open" id="carousel-close">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- carousel -->
@@ -169,6 +180,7 @@
 		<script>
 			var baseUrl = "<?php echo base_url(); ?>"
 			var route = "<?php echo $this->uri->segment(1); ?>"
+			
 			function goBack() {
 				window.history.back();
 			}
@@ -178,6 +190,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/underscore.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/moyn.js"></script>
 	</body>
 </html>
