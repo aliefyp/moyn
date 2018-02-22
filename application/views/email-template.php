@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <div style="margin-bottom:32px; font-size=18px">Pesanan Masuk! [automated]</div>
-    <div style="margin-bottom:16px">Pesanan menunggu respon: </div>
+    <table>
+      <tr style="margin-bottom:32px; font-size:18px; font-weight: 600">Pesanan Masuk!<br /><br /></tr>
+      <tr></tr>
+      <tr style="margin-bottom:16px">Pesanan menunggu respon: </tr>
+    </table>
     <table style="margin-bottom:16px">
       <tr>
         <td>Nama</td>

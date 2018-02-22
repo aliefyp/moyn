@@ -72,7 +72,7 @@ class Purchase extends CI_Controller {
 		$this->email->from('sender.moyn@gmail.com', 'moyn');
 		$this->email->to('receiver.moyn@gmail.com');
 
-		$this->email->subject('Pesanan masuk!');
+		$this->email->subject('Pesanan masuk dari ' .$fullname.'!');
 		$this->email->message($email_content);
 		
 		if ($this->email->send()) {
