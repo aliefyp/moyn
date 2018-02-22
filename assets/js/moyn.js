@@ -59,13 +59,13 @@ const fetchDataProject = function(queryType) {
 			var chunkSize = $(window).width() > 992 ? 8 : 4
 			var groupThumb = arrThumb.chunk(chunkSize)
 
-			// if (arrThumb.length <= chunkSize) {
-			// 	$("#gallery-project-prev").hide()
-			// 	$("#gallery-project-next").hide()
-			// } else {
-			// 	$("#gallery-project-prev").show()
-			// 	$("#gallery-project-next").show()
-			// }
+			if (arrThumb.length <= chunkSize) {
+				$("#gallery-project-prev").hide()
+				$("#gallery-project-next").hide()
+			} else {
+				$("#gallery-project-prev").show()
+				$("#gallery-project-next").show()
+			}
 
 			$.each(groupThumb, function(indexGroup, group) {
 				var groupDOM = "<div class='gallery__column'><div class='gallery__column-inner'>"
@@ -417,32 +417,21 @@ $(document).ready(function(){
 	// GALLERY
 	var columnWidth = $(window).width() > 992 ? 508 : 258
 	
-	$("#gallery-project-prev").click(function() {
+	$(document).on("click", "#gallery-project-prev", function() {
 		var limitLeft = 1
 		if (galleryPosition > limitLeft) {
 			galleryPosition -= 1
-			$("#gallery-project").animate({scrollLeft: columnWidth * galleryPosition - columnWidth}, 500)
-			
-			
+			$("#gallery-project").animate({scrollLeft: columnWidth * galleryPosition - columnWidth}, 500)	
 		}
 	})
-	$("#gallery-project-next").click(function() {
+	$(document).on("click", "#gallery-project-next", function() {
 		var limitRight = $("#gallery-project")[0].scrollWidth / columnWidth
 		if (galleryPosition < limitRight) {
 			$("#gallery-project").animate({scrollLeft: columnWidth * galleryPosition}, 500)
-			galleryPosition++
-
-			
+			galleryPosition++	
 		}
 	})
 
-	// $("#gallery-project").addEventListener("scroll", function() {
-	// 	if (galleryPosition == limitLeft) {$("#gallery-project-prev").hide()}		
-	// 	else {$("#gallery-project-prev").show()}	
-
-	// 	if (galleryPosition == limitRight) {$("#gallery-project-next").hide()}
-	// 	else {$("#gallery-project-next").show()}	
-	// })
 
 
 	// CAROUSEL
