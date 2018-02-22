@@ -513,6 +513,40 @@ button:focus {
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg); }
 
+.moyn-news .moyn-news-img {
+  margin-bottom: 32px;
+  max-width: 100%;
+  max-height: 400px; }
+.moyn-news .moyn-news-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px; }
+.moyn-news .moyn-news-date {
+  margin-bottom: 32px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic; }
+.moyn-news .moyn-news-content {
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.7); }
+
+ul.moyn-accordion {
+  text-align: right;
+  width: 100%;
+  font-size: 13px; }
+  ul.moyn-accordion a {
+    color: rgba(255, 255, 255, 0.7); }
+  ul.moyn-accordion li {
+    list-style: none; }
+    ul.moyn-accordion li ul li {
+      margin-right: 48px; }
+      ul.moyn-accordion li ul li .inner {
+        margin-right: 64px; }
+        ul.moyn-accordion li ul li .inner a {
+          display: block;
+          margin-bottom: 8px; }
+
 .my-16 {
   margin: 16px 0; }
 

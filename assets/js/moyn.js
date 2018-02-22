@@ -17,7 +17,6 @@ const fetchDataProject = function(queryType) {
 			var json = $.parseJSON(result)
 			var arrThumb = []
 			$.each(json, function(index, item) {
-				console.log(item)
 				var id = "", name = "", type = "", image = ""
 				switch (queryType) {
 					case "unbuilt":
@@ -89,7 +88,6 @@ const fetchDataShop = function() {
 		success: function(result){
 			
 			var json = $.parseJSON(result)
-			console.log(json)
 			var arrThumb = []
 			$.each(json, function(index, item) {
 				var thumbDOM = "<a href='"+baseUrl+"product?id="+item.id_item+"'>"
@@ -127,11 +125,53 @@ const fetchDataShop = function() {
 	});
 };
 
+const getAccordion = function() {
+	$.ajax({
+		type: "POST",
+		url: baseUrl + 'news/times' ,
+		success: function(result){
+			var json = $.parseJSON(result)
+			var arrGroup = []
+			
+			var groupedJSON =	_.groupBy(json, "tahun_news")
+
+			_.mapObject(groupedJSON, function(array_bulan, nama_tahun) {
+				var accordionDOM = "<li>"
+					accordionDOM += "<a class='toggle toggle_year' href='javascript:void(0);'>"+nama_tahun+"</a>"
+					accordionDOM += "<ul class='inner'>"
+						$.each(array_bulan, function(index, item) {
+							accordionDOM += "<li>"
+								accordionDOM += "<a class='toggle toggle_month' id='"+nama_tahun+"-"+item.bulan_news+"' href='javascript:void(0);'>"+item.bulan_news+"</a>"
+								accordionDOM += "<div class='inner'>"
+								accordionDOM += "</div>"
+							accordionDOM += "</li>"
+						})
+					accordionDOM += "</ul>"
+				accordionDOM += "</li>"
+
+				$("#news_accordion").append(accordionDOM)
+			})
+		}
+	});
+};
+
+const fetchDataNews = function(year, month, element) {
+	var list = []
+	$.ajax({
+		type: "POST",
+		url: baseUrl + 'news/articles' ,
+		data: {year: year.toString(), month: month.toString()},
+		success: function(result){
+			var json = $.parseJSON(result)
+			$.each(json, function(index, item) {
+				link = "<a id='"+item.id_news+"' href='"+baseUrl+"article?id="+item.id_news+"'>"+item.judul_news+"</a>"
+				element.append(link)
+			})
+		},
+	});
+};
+
 const displaySlider = function(table, proj_id, table_id) {
-	console.log(table)
-	console.log(proj_id)
-	console.log(table_id)
-	console.log(baseUrl)
 	$("#carousel").empty()
 	
 	$.ajax({
@@ -196,6 +236,37 @@ $(document).ready(function(){
 		galleryPosition = 1
 		fetchDataShop()
 	}
+	if(route === "news") {
+		getAccordion()
+	}
+
+	$(document).on("click", ".toggle", function(e) {
+  	e.preventDefault();
+  
+    var $this = $(this);
+  
+    if ($this.next().hasClass('show')) {
+        $this.next().removeClass('show');
+        $this.next().slideUp(350);
+    } else {
+        $this.parent().parent().find('li .inner').removeClass('show');
+        $this.parent().parent().find('li .inner').slideUp(350);
+        $this.next().toggleClass('show');
+        $this.next().slideToggle(350);
+    }
+	});
+
+	$(document).on("click", ".toggle_month", function(e) {
+		e.preventDefault();
+		$(this).next().empty()
+		
+		var elemParams = $(this)[0].id.split('-')
+		var elemYear = elemParams[0]
+		var elemMonth= elemParams[1]
+
+		var inner = $(this).next()
+		var list = fetchDataNews(elemYear, elemMonth, inner)
+	});
 	
 	// PROFILE
 	$(".moyn-founders--left > img").mouseover(function(){
@@ -249,6 +320,10 @@ $(document).ready(function(){
 					$("#content-sm").append($("<div class='c-white mb-16'>CONTACT</div>")).fadeIn()			
 					$("#content-sm").append($("#content-contact")[0]).fadeIn()
 					break;
+				case "news":			
+					$("#content-sm").append($("<div class='c-white mb-16'>NEWS</div>")).fadeIn()			
+					$("#content-sm").append($("#content-news")[0]).fadeIn()
+					break;
 				
 				case "shop":
 					$("#content-sm").append($("<div class='c-white mb-16'>SHOP</div>")).fadeIn()
@@ -271,7 +346,7 @@ $(document).ready(function(){
 
 	// PROJECT
 
-	$("#nav-unbuilt").click(function() {
+	$(document).on("click", "#nav-unbuilt", function() {
 		$("#nav-studio").removeClass("active")
 		$("#nav-realized").removeClass("active")
 		$("#nav-unbuilt").addClass("active")
@@ -280,7 +355,7 @@ $(document).ready(function(){
 		tableIdName = "id_up"
 		fetchDataProject("unbuilt")
 	})
-	$("#control-unbuilt").click(function() {
+	$(document).on("click", "#control-unbuilt", function() {
 		$("#control-studio").removeClass("active")
 		$("#control-realized").removeClass("active")
 		$("#control-unbuilt").addClass("active")
@@ -290,7 +365,7 @@ $(document).ready(function(){
 		fetchDataProject("unbuilt")
 	})
 
-	$("#nav-studio").click(function() {
+	$(document).on("click", "#nav-studio", function() {
 		$("#nav-studio").addClass("active")
 		$("#nav-realized").removeClass("active")
 		$("#nav-unbuilt").removeClass("active")
@@ -299,7 +374,7 @@ $(document).ready(function(){
 		tableIdName = "id_studio"
 		fetchDataProject("studio")
 	})
-	$("#control-studio").click(function() {
+	$(document).on("click", "#control-studio", function() {
 		$("#control-studio").addClass("active")
 		$("#control-realized").removeClass("active")
 		$("#control-unbuilt").removeClass("active")
@@ -310,7 +385,7 @@ $(document).ready(function(){
 	})
 
 
-	$("#nav-realized").click(function() {
+	$(document).on("click", "#nav-realized", function() {
 		$("#nav-studio").removeClass("active")
 		$("#nav-realized").addClass("active")
 		$("#nav-unbuilt").removeClass("active")
@@ -319,7 +394,7 @@ $(document).ready(function(){
 		tableIdName = "id_rp"
 		fetchDataProject("realized")		
 	})
-	$("#control-realized").click(function() {
+	$(document).on("click", "#control-realized", function() {
 		$("#control-studio").removeClass("active")
 		$("#control-realized").addClass("active")
 		$("#control-unbuilt").removeClass("active")
@@ -331,7 +406,7 @@ $(document).ready(function(){
 
 
 	// HAMBURGER
-	$("#hamburger-menu").click(function() {
+	$(document).on("click", "#hamburger-menu", function() {
 		$(this).toggleClass("open")
 		$("#sidebar-menu").toggleClass("active")
 		$("#sidebar-overlay").toggle()
@@ -381,14 +456,14 @@ $(document).ready(function(){
 		displaySlider(table, proj_id, table_id)
 	})
 	
-	$("#carousel-nav-prev").click(function() {
+	$(document).on("click", "#carousel-nav-prev", function() {
 		var limitLeft = 1
 		if (carouselPosition > limitLeft) {
 			carouselPosition -= 1		
 			$("#carousel").animate({scrollLeft: carouselWidth * carouselPosition - carouselWidth}, 500)
 		}
 	})
-	$("#carousel-nav-next").click(function() {
+	$(document).on("click", "#carousel-nav-next", function() {
 		var limitRight = $("#carousel")[0].scrollWidth / carouselWidth
 		if (carouselPosition < limitRight) {
 			$("#carousel").animate({scrollLeft: carouselWidth * carouselPosition}, 500)
@@ -396,7 +471,7 @@ $(document).ready(function(){
 		}
 	})
 
-	$("#carousel-close").click(function() {
+	$(document).on("click", "#carousel-close", function() {
 		carouselPosition = 1
 		$("#carousel").scrollLeft(0)
 		$("#popup-slider").hide()

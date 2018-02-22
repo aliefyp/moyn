@@ -51,6 +51,32 @@ class Content_model extends CI_Model {
 		return $data->result();	
 	}
 
+	// public function get_news($id_news) {
+	// 	$this->db->distinct();
+	// 	$this->db->select('*');
+	// 	$this->db->from('news');
+	// 	$this->db->where('news.id_news', $id_news);
+
+	// 	$data = $this->db->get();
+	// 	return $data->result();	
+	// }
+
+	public function get_time_of_news() {	
+		$data = $this->db->query("select bulan_news, tahun_news from news group by YEAR(news.created_at) desc, MONTH(news.created_at) asc");		
+		return $data->result();	
+	}
+	
+	public function get_all_article($year, $month) {	
+		$this->db->distinct();
+		$this->db->select('*');
+		$this->db->from('news');
+		$this->db->where('news.bulan_news', $month);
+		$this->db->where('news.tahun_news', $year);
+		// $data = $this->db->query("select distinct judul_news from news where news.bulan_news=".$month." and news.tahun_news=".$year);		
+		$data = $this->db->get();		
+		return $data->result();	
+	}
+
 	public function get_product($id_product) {
 		$this->db->distinct();
 		$this->db->select('*');
