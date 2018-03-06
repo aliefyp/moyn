@@ -78,7 +78,7 @@
 						<div id="content-contact">
 							<div class="mb-16">
 								<div>Jl.Carikan Gondosuli</div>
-								<div>Muntailan Magelang, 56415</div>
+								<div>Muntilan Magelang, 56415</div>
 								<div>Indonesia</div>
 								<div>7.5676, 110.2842 E</div>
 							</div>
