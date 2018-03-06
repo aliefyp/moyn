@@ -1,12 +1,18 @@
 @font-face {
   font-family: Futura;
   src: url("../fonts/futura-bk-bt-0140m_.ttf"); }
+@font-face {
+  font-family: Brie;
+  src: url("../fonts/brie-light.TTF"); }
 html, body {
   font-family: Futura, sans-serif;
   background-color: black;
   color: rgba(255, 255, 255, 0.3);
   font-size: 12px;
   box-sizing: border-box; }
+
+body {
+  min-height: 100vh; }
 
 .show-sm {
   display: none; }
@@ -30,12 +36,15 @@ button:focus {
     height: auto;
     margin: 32px 0; }
 
+.moyn-container {
+  min-height: calc(100vh - 26px); }
+
 .moyn-footer {
-  text-align: right;
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  box-sizing: border-box; }
+  text-align: right; }
+  .moyn-footer .moyn-footer-logo {
+    font-family: Brie, sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px; }
 
 .moyn-control__holder {
   display: none;

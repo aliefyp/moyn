@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-		<div class="container relative">
+		<div class="container moyn-container relative">
 			<div class="moyn-header">
 				<img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo">
 				<div class="moyn-hamburger-holder show-sm">
@@ -116,10 +116,6 @@
 			<!-- content sm -->
 			<div class="moyn-content--sm show-sm" id="content-sm"></div>
 
-			<!-- footer -->
-			<!-- <div class="moyn-footer">
-				Copyright &copy 2018 | <span><img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo" height="16"></span>
-			</div> -->
 
 			<!-- sidebar (mobile) -->
 			<div class="moyn-overlay" id="sidebar-overlay"></div>
@@ -176,6 +172,10 @@
 			</div>
 			<!-- carousel -->
 			
+		</div>
+
+		<div class="container moyn-footer">
+			Copyright &copy 2018 | <span class="moyn-footer-logo">moyn</span>
 		</div>
 		<script>
 			var baseUrl = "<?php echo base_url(); ?>"
