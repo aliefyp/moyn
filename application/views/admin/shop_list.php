@@ -27,7 +27,7 @@
                         <td><?php echo $value['name_item'];?></td>
                         <td><?php echo $value['deskripsi_item'];?></td>
                         <td><?php echo number_format($value['price_item'], 2, ',', '.');?></td>
-                        <td><?php echo $value['active_item'];?></td>
+                        <td><?php echo $value['active'];?></td>
                         <td>
                           <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal">Lihat Gambar</a>
                           <a class="btn btn-small btn-warning" href="<?php echo base_url().'my_shop/edit_shop?id_item='.$value['id_item']?>">Edit</a>

@@ -42,7 +42,7 @@ class Content_model extends CI_Model {
 				break;
 		}
 
-		$data = $this->db->query("select distinct * from ".$table_name." a inner join ".$table_img_name." b on a.".$id_project."=b.".$id_project." group by a.".$id_project);
+		$data = $this->db->query("select distinct * from ".$table_name." a inner join ".$table_img_name." b on a.".$id_project."=b.".$id_project." where a.active=1 group by a.".$id_project);
 		return $data->result();
 	}
 
@@ -83,6 +83,7 @@ class Content_model extends CI_Model {
 		$this->db->from('shop_item');
 		$this->db->join('img_shop_item', 'shop_item.id_item = img_shop_item.id_item');
 		$this->db->where('shop_item.id_item', $id_product);
+		$this->db->where('shop_item.active', '1');
 		$this->db->group_by('shop_item.id_item');
 
 		$data = $this->db->get();
@@ -90,6 +91,10 @@ class Content_model extends CI_Model {
 	}
 	
 	public function get_content($table){
+		/*if($table != 'news')
+		{
+			$this->db->where('active', 1);
+		}*/
 		$content = $this->db->get($table)->result_array();
 		return empty($content) ?  FALSE : $content;
 	}

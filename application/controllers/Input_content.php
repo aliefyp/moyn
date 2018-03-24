@@ -58,7 +58,7 @@ class Input_content extends MY_Controller {
 						$table_id	= 'id_rp';
 						$data_input = array('name_rp' 	=> $proj_name,
 									'type_rp'	=> $proj_type,
-									'active_rp' => $proj_status,
+									'active' => $proj_status,
 									'edited_at'=> date('Y-m-d H:i:s'),
 									'edited_by'=> $this->session->userdata('username')
 								);
@@ -70,7 +70,7 @@ class Input_content extends MY_Controller {
 						$table_id	= 'id_studio';
 						$data_input = array('name_studio' 	=> $proj_name,
 									'type_studio'	=> $proj_type,
-									'active_studio' => $proj_status,
+									'active' => $proj_status,
 									'edited_at'=> date('Y-m-d H:i:s'),
 									'edited_by'=> $this->session->userdata('username')
 								);
@@ -82,7 +82,7 @@ class Input_content extends MY_Controller {
 						$table_id	= 'id_up';
 						$data_input = array('name_up' 	=> $proj_name,
 									'type_up'	=> $proj_type,
-									'active_up' => $proj_status,
+									'active' => $proj_status,
 									'edited_at'=> date('Y-m-d H:i:s'),
 									'edited_by'=> $this->session->userdata('username')
 								);
@@ -100,7 +100,7 @@ class Input_content extends MY_Controller {
 						$table_img 	= 'img_realized_project';
 						$data_input = array('name_rp' 	=> $proj_name,
 									'type_rp'	=> $proj_type,
-									'active_rp' => $proj_status,
+									'active' => $proj_status,
 									'created_at'=> date('Y-m-d H:i:s'),
 									'created_by'=> $this->session->userdata('username')
 								);
@@ -111,7 +111,7 @@ class Input_content extends MY_Controller {
 						$table_img 	= 'img_studio';
 						$data_input = array('name_studio' 	=> $proj_name,
 									'type_studio'	=> $proj_type,
-									'active_studio' => $proj_status,
+									'active' => $proj_status,
 									'created_at'=> date('Y-m-d H:i:s'),
 									'created_by'=> $this->session->userdata('username')
 								);
@@ -122,7 +122,7 @@ class Input_content extends MY_Controller {
 						$table_img 	= 'img_unbuilt_project';
 						$data_input = array('name_up' 	=> $proj_name,
 									'type_up'	=> $proj_type,
-									'active_up' => $proj_status,
+									'active' => $proj_status,
 									'created_at'=> date('Y-m-d H:i:s'),
 									'created_by'=> $this->session->userdata('username')
 								);

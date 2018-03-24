@@ -57,7 +57,7 @@ class Manage_content extends MY_Controller {
 						$data['content'][$key]['id'] = $value['id_rp'];
 						$data['content'][$key]['name'] = $value['name_rp'];
 						$data['content'][$key]['type'] = $value['type_rp'];
-						$data['content'][$key]['active'] = $value['active_rp'];
+						$data['content'][$key]['active'] = $value['active'];
 						$data['content'][$key]['created_at'] = $value['created_at'];
 						$data['content'][$key]['created_by'] = $value['created_by'];
 						$data['content'][$key]['edited_at'] = $value['edited_at'];
@@ -70,7 +70,7 @@ class Manage_content extends MY_Controller {
 						$data['content'][$key]['id'] = $value['id_studio'];
 						$data['content'][$key]['name'] = $value['name_studio'];
 						$data['content'][$key]['type'] = $value['type_studio'];
-						$data['content'][$key]['active'] = $value['active_studio'];
+						$data['content'][$key]['active'] = $value['active'];
 						$data['content'][$key]['created_at'] = $value['created_at'];
 						$data['content'][$key]['created_by'] = $value['created_by'];
 						$data['content'][$key]['edited_at'] = $value['edited_at'];
@@ -83,7 +83,7 @@ class Manage_content extends MY_Controller {
 						$data['content'][$key]['id'] = $value['id_up'];
 						$data['content'][$key]['name'] = $value['name_up'];
 						$data['content'][$key]['type'] = $value['type_up'];
-						$data['content'][$key]['active'] = $value['active_up'];
+						$data['content'][$key]['active'] = $value['active'];
 						$data['content'][$key]['created_at'] = $value['created_at'];
 						$data['content'][$key]['created_by'] = $value['created_by'];
 						$data['content'][$key]['edited_at'] = $value['edited_at'];
@@ -96,7 +96,7 @@ class Manage_content extends MY_Controller {
 					$data['content'][$key]['id'] = $value['id_rp'];
 					$data['content'][$key]['name'] = $value['name_rp'];
 					$data['content'][$key]['type'] = $value['type_rp'];
-					$data['content'][$key]['active'] = $value['active_rp'];
+					$data['content'][$key]['active'] = $value['active'];
 					$data['content'][$key]['created_at'] = $value['created_at'];
 					$data['content'][$key]['created_by'] = $value['created_by'];
 					$data['content'][$key]['edited_at'] = $value['edited_at'];
@@ -118,7 +118,7 @@ class Manage_content extends MY_Controller {
 						$data['content']['id'] = $result['id_rp'];
 						$data['content']['name'] = $result['name_rp'];
 						$data['content']['type'] = $result['type_rp'];
-						$data['content']['active'] = $result['active_rp'];
+						$data['content']['active'] = $result['active'];
 						$data['content']['created_at'] = $result['created_at'];
 						$data['content']['created_by'] = $result['created_by'];
 						$data['content']['edited_at'] = $result['edited_at'];
@@ -131,7 +131,7 @@ class Manage_content extends MY_Controller {
 						$data['content']['id'] = $result['id_studio'];
 						$data['content']['name'] = $result['name_studio'];
 						$data['content']['type'] = $result['type_studio'];
-						$data['content']['active'] = $result['active_studio'];
+						$data['content']['active'] = $result['active'];
 						$data['content']['created_at'] = $result['created_at'];
 						$data['content']['created_by'] = $result['created_by'];
 						$data['content']['edited_at'] = $result['edited_at'];
@@ -144,7 +144,7 @@ class Manage_content extends MY_Controller {
 						$data['content']['id'] = $result['id_up'];
 						$data['content']['name'] = $result['name_up'];
 						$data['content']['type'] = $result['type_up'];
-						$data['content']['active'] = $result['active_up'];
+						$data['content']['active'] = $result['active'];
 						$data['content']['created_at'] = $result['created_at'];
 						$data['content']['created_by'] = $result['created_by'];
 						$data['content']['edited_at'] = $result['edited_at'];
@@ -157,7 +157,7 @@ class Manage_content extends MY_Controller {
 						$data['content']['id'] = $result['id_rp'];
 						$data['content']['name'] = $result['name_rp'];
 						$data['content']['type'] = $result['type_rp'];
-						$data['content']['active'] = $result['active_rp'];
+						$data['content']['active'] = $result['active'];
 						$data['content']['created_at'] = $result['created_at'];
 						$data['content']['created_by'] = $result['created_by'];
 						$data['content']['edited_at'] = $result['edited_at'];

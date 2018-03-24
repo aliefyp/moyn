@@ -28,9 +28,9 @@
                     <label class="control-label" for="project_status">Status</label>
                     <div class="controls">
                       <select name="project_status" id="project_status" class="span2">
-                        <option value="-">Select Status</option>
-                        <option value="1" <?php echo (!empty($result['content']['active']) && $result['content']['active']) ? 'selected' : ''; ?>>Active</option>
-                        <option value="0" <?php echo (!empty($result['content']['active']) && $result['content']['active']) ? '' : 'selected'; ?>>Inactive</option>
+                        <option value="-" selected>Select Status</option>
+                        <option value="1" <?php echo ($result['content']['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                        <option value="0" <?php echo ($result['content']['active'] == 0) ? 'selected' : ''; ?>>Inactive</option>
                       </select>
                     </div>                      
                   </div>
