@@ -34,9 +34,9 @@
                     <label class="control-label" for="item_status">Status</label>
                     <div class="controls">
                       <select name="item_status" id="item_status" class="span2">
-                        <option value="-">Select Status</option>
-                        <option value="1" <?php echo (!empty($shop_item['active_item']) && $shop_item['active_item'])? 'selected' : ''?> >Active</option>
-                        <option value="0" <?php echo (!empty($shop_item['active_item']) && $shop_item['active_item'])? '' : 'selected'?> >Inactive</option>
+                        <option value="-" selected>Select Status</option>
+                        <option value="1" <?php echo ($shop_item['active'] == 1)? 'selected' : ''?> >Active</option>
+                        <option value="0" <?php echo ($shop_item['active'] == 0)? 'selected' : ''?> >Inactive</option>
                       </select>
                     </div>                      
                   </div>

@@ -30,7 +30,7 @@ class My_shop extends MY_Controller {
 
 			$data_input = array('name_item' => $item_name,
 								'deskripsi_item' => $item_desc,
-								'active_item' => $item_status,
+								'active' => $item_status,
 								'price_item' => str_replace(".", '', $item_price),
 								'edited_at' => date('Y-m-d H:i:s'),
 								'edited_by' => $this->session->userdata('username'));
@@ -41,14 +41,14 @@ class My_shop extends MY_Controller {
 					if($this->content->update_content($data_input, 'shop_item', 'id_item', $item_id)){
 						$res = $this->upload_images($item_id, 'img_shop_item', 1);
 						$this->session->set_userdata('upload', $res);
-						redirect('shop_list');
+						redirect('my_shop/shop_list');
 				}	
 			}else{
 					if($this->content->save_content($data_input, 'shop_item')){
 						$id = $this->db->insert_id();
 						$res = $this->upload_images($id, 'img_shop_item', 0);
 						$this->session->set_userdata('upload', $res);
-						redirect('shop_list');
+						redirect('my_shop/shop_list');
 				}
 			}
 			
