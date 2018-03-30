@@ -47,7 +47,7 @@ class Content_model extends CI_Model {
 	}
 
 	public function read_shop() {
-		$data = $this->db->query("select distinct * from shop_item a inner join img_shop_item b on a.id_item=b.id_item group by a.id_item");
+		$data = $this->db->query("select distinct * from shop_item a inner join img_shop_item b on a.id_item=b.id_item where a.active=1 group by a.id_item");
 		return $data->result();	
 	}
 

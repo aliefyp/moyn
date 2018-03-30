@@ -58,10 +58,10 @@ class Purchase extends CI_Controller {
 		// setup email
 		$config = Array(
 			"protocol" 	=> "smtp",
-			"smtp_host" => "ssl://smtp.googlemail.com",
+			"smtp_host" => "ssl://srv41.niagahoster.com",
 			"smtp_port" => 465,
-			"smtp_user" => "sender.moyn@gmail.com",
-			"smtp_pass" => "ngawuraja",
+			"smtp_user" => "sender@studiomoyn.com",
+			"smtp_pass" => "surgadunia",
 			"mailtype"  => "html", 
 			"charset"   => "iso-8859-1",
 			"newline"		=> "\r\n"
@@ -69,7 +69,7 @@ class Purchase extends CI_Controller {
 
 		$this->load->library('email', $config);
 
-		$this->email->from('sender.moyn@gmail.com', 'moyn');
+		$this->email->from('sender@studiomoyn.com', 'moyn');
 		$this->email->to('receiver.moyn@gmail.com');
 
 		$this->email->subject('Pesanan masuk dari ' .$fullname.'!');

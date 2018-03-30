@@ -28,14 +28,22 @@
                     <label class="control-label" for="project_status">Status</label>
                     <div class="controls">
                       <select name="project_status" id="project_status" class="span2">
-                        <option value="-" selected>Select Status</option>
-                        <option value="1" <?php echo ($result['content']['active'] == 1) ? 'selected' : ''; ?>>Active</option>
-                        <option value="0" <?php echo ($result['content']['active'] == 0) ? 'selected' : ''; ?>>Inactive</option>
+                        <?php if(isset($result['content']['active'])){ ?>
+                          <option value="-" selected>Select Status</option>
+                          <option value="1" <?php echo ($result['content']['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                          <option value="0" <?php echo ($result['content']['active'] == 0) ? 'selected' : ''; ?>>Inactive</option>  
+                        <?php }
+                        else{ ?>
+                          <option value="-" selected>Select Status</option>
+                          <option value="1">Active</option>
+                          <option value="0">Inactive</option>  
+                        <?php }?>
+                        
                       </select>
                     </div>                      
                   </div>
                 
-                <?php if(isset($images) &&   $images){ 
+                <?php if(isset($images) && $images){ 
                   foreach ($images as $key => $value) { ?>
                       <div class="control-group" id="foto_input<?php echo $key?>">                     
                         <label class="control-label" for="project_img">Image</label>
