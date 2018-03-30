@@ -34,9 +34,17 @@
                     <label class="control-label" for="item_status">Status</label>
                     <div class="controls">
                       <select name="item_status" id="item_status" class="span2">
-                        <option value="-" selected>Select Status</option>
-                        <option value="1" <?php echo ($shop_item['active'] == 1)? 'selected' : ''?> >Active</option>
-                        <option value="0" <?php echo ($shop_item['active'] == 0)? 'selected' : ''?> >Inactive</option>
+                        <?php if(isset($shop_item['active'])){ ?>
+                          <option value="-" selected>Select Status</option>
+                          <option value="1" <?php echo ($shop_item['active'] == 1)? 'selected' : ''?> >Active</option>
+                          <option value="0" <?php echo ($shop_item['active'] == 0)? 'selected' : ''?> >Inactive</option>
+                        <?php }
+                        else{ ?>
+                          <option value="-" selected>Select Status</option>
+                          <option value="1">Active</option>
+                          <option value="0">Inactive</option>
+                        <?php }?>
+                        
                       </select>
                     </div>                      
                   </div>
