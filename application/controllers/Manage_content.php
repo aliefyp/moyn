@@ -326,15 +326,15 @@ class Manage_content extends MY_Controller {
 							$img_res[$key]['id_pro']	= $value['id_rp'];
 							$img_res[$key]['deskripsi']	= $value['deskripsi_irp'];
 							$img_res[$key]['url']		= $value['url_irp'];
-							$img_res[$key]['active']	= $value['active'];
+							$img_res[$key]['active']	= $value['active_irp'];
 							break;
 		
 						case '2':
 							$img_res[$key]['id_img']	= $value['id_istd'];
 							$img_res[$key]['id_pro']	= $value['id_studio'];
-							$img_res[$key]['deskripsi']	= $value['name_studio'];
+							$img_res[$key]['deskripsi']	= $value['deskripsi_istd'];
 							$img_res[$key]['url']		= $value['url_istd'];
-							$img_res[$key]['active']	= $value['active'];
+							$img_res[$key]['active']	= $value['active_istd'];
 							break;
 		
 						case '3':
@@ -342,7 +342,7 @@ class Manage_content extends MY_Controller {
 							$img_res[$key]['id_pro']	= $value['id_up'];
 							$img_res[$key]['deskripsi']	= $value['deskripsi_iup'];
 							$img_res[$key]['url']		= $value['url_iup'];
-							$img_res[$key]['active']	= $value['active'];
+							$img_res[$key]['active']	= $value['active_iup'];
 							break;
 						
 						default:
@@ -350,7 +350,7 @@ class Manage_content extends MY_Controller {
 							$img_res[$key]['id_pro']	= $value['id_rp'];
 							$img_res[$key]['deskripsi']	= $value['deskripsi_irp'];
 							$img_res[$key]['url']		= $value['url_irp'];
-							$img_res[$key]['active']	= $value['active'];
+							$img_res[$key]['active']	= $value['active_irp'];
 							break;
 					}
 				}
