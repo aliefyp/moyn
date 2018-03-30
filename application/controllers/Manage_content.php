@@ -330,10 +330,10 @@ class Manage_content extends MY_Controller {
 							break;
 		
 						case '2':
-							$img_res[$key]['id_img']	= $value['id_studio'];
+							$img_res[$key]['id_img']	= $value['id_istd'];
 							$img_res[$key]['id_pro']	= $value['id_studio'];
-							$img_res[$key]['deskripsi']	= $value['deskripsi_studio'];
-							$img_res[$key]['url']		= $value['url_studio'];
+							$img_res[$key]['deskripsi']	= $value['name_studio'];
+							$img_res[$key]['url']		= $value['url_istd'];
 							$img_res[$key]['active']	= $value['active'];
 							break;
 		
