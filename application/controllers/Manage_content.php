@@ -46,7 +46,7 @@ class Manage_content extends MY_Controller {
 			$this->session->unset_userdata('upload');
 		}
 		$this->add_css('lightbox/css/lightbox.css');
-		$this->add_css('lightbox/js/lightbox.js');
+		$this->add_js('lightbox/js/lightbox.js');
 
 		$this->display('admin/list_content', $data);
 	}
@@ -254,6 +254,13 @@ class Manage_content extends MY_Controller {
 				$data['project'] = 3;
 				$table 			 = 'img_unbuilt_project';
 				$id_name 		 = 'id_up';
+				break;
+
+			case '4':
+				$data['_title']  = 'Manage My Shop';
+				$data['project'] = 4;
+				$table 			 = 'img_shop_item';
+				$id_name 		 = 'id_item';
 				break;
 			
 			default:
