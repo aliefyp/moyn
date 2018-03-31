@@ -63,7 +63,22 @@
 
         $.each(json, function(index, item) {
           var img = document.createElement("a")
-          $(img).attr("href", item.url_irp)
+          var url = ''
+          switch(type_proj){
+            case '1':
+              url = item.url_irp
+              break;
+
+            case '2':
+              url = item.url_istd
+              break;
+
+            case '3':
+              url = item.url_iup
+              break;
+          }
+          console.log(url)
+          $(img).attr("href", url)
           $(img).attr("class", "moyn-lightbox")
           $(img).attr("data-lightbox", "preview")
           $(img).data("lightbox", "preview")

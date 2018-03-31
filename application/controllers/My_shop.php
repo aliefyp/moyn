@@ -103,12 +103,7 @@ class My_shop extends MY_Controller {
 	}
 
 	public function shop_list(){
-		$data['_title'] = 'My Shop Items List';
-		$this->load->model('content_model', 'content');
-
-		$data['content'] = $this->content->get_content('shop_item');
-		$this->add_datatable();
-		$this->display('admin/shop_list', $data);
+		redirect('shop_list');
 	}
 
 	public function edit_shop(){

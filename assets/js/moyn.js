@@ -403,7 +403,6 @@ $(document).on("click", ".gallery__thumb", function() {
 	var table = tableImgName
 	var proj_id = this.id.split("-")[1]
 	var table_id  = tableIdName
-
 	displaySlider(table, proj_id, table_id)
 })
 

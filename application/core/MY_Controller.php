@@ -196,7 +196,7 @@ class MY_Controller extends CI_Controller {
                             'menu_parent'   => '2',
                             'menu_title'    => 'My Shop',
                             'menu_icon'     => 'icon-money',
-                            'menu_url'      => '/my_shop/shop_list',
+                            'menu_url'      => '/shop_list',
                             'order_number'  => '4'),
                         10 => array(
                             'menu_id'       => '11',
