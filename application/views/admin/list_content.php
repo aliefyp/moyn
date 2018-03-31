@@ -27,7 +27,7 @@
                         <td><?php echo $value['type'];?></td>
                         <td><?php echo $value['active'];?></td>
                         <td>
-                          <a class="btn btn-small btn-success" data-toggle="modal" data-target="#myModal" id="show_img" onclick="show_img('<?php echo $project;?>', '<?php echo $value["id"];?>')">Lihat Gambar</a>
+                          <a class="btn btn-small btn-success" id="show_img" onclick="show_img('<?php echo $project;?>', '<?php echo $value["id"];?>')">Lihat Gambar</a>
                           <a class="btn btn-small btn-warning" href="<?php echo base_url().'manage_content/edit_content?type_proj='.$project.'&id_proj='.$value['id'];?>">Edit</a>
                           <a class="btn btn-small btn-danger" href="<?php echo base_url().'manage_content/delete_content?type_proj='.$project.'&id_proj='.$value['id'];?>" onclick="return confirm('Anda yakin?')">Hapus</a>
                         </td>
@@ -41,30 +41,10 @@
           <!-- /widget-content --> 
         </div>
     </div>
-
-</div>
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Images</h4>
-      </div>
-      <div class="modal-body" align="center" id="modal-body">
-        <ul id="bxslider" class="bxslider">
-          
-        </ul>
-          
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
   </div>
-</div>
+  <div class="moyn-lightbox-container" style="visibility:hidden"></div>
 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/lightbox/js/lightbox.js"></script>
 <script type="text/javascript">
   $(function(){
     $('#myTable').dataTable();
@@ -76,15 +56,40 @@
       data: {type_proj:type_proj, id_proj:id_proj, json:1},
       typeData: 'json',
       type: 'GET',
-      success: function(data){  
-      data = JSON.parse(data);      
-        if(data){
-          for(var i=0; i<data.length; i++){
-            $('#bxslider').append('<li><img src="'+data[i].url_irp+'"></li>');
-          } 
-        }
+      success: function(data){
+        var json = $.parseJSON(data)
+        var arrThumb = []
+        $(".moyn-lightbox-container").empty()
+
+        $.each(json, function(index, item) {
+          var img = document.createElement("a")
+          var url = ''
+          switch(type_proj){
+            case '1':
+              url = item.url_irp
+              break;
+
+            case '2':
+              url = item.url_istd
+              break;
+
+            case '3':
+              url = item.url_iup
+              break;
+          }
+          console.log(url)
+          $(img).attr("href", url)
+          $(img).attr("class", "moyn-lightbox")
+          $(img).attr("data-lightbox", "preview")
+          $(img).data("lightbox", "preview")
+          $(img).text("image")
+          
+          $(".moyn-lightbox-container").append(img)          
+        })
+        
+        $(".moyn-lightbox").first().click()
       }
     });
-}
+  }
   
 </script>

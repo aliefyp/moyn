@@ -262,6 +262,7 @@ button:focus {
 
 .moyn-founders {
 	position: relative;
+	padding-top: 32px;
 
 	&--left {
 		float: left;
@@ -543,7 +544,7 @@ button:focus {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 480px;
+		width: 640px;
 		height: 24px;
 
 		&__next {
@@ -572,7 +573,7 @@ button:focus {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 480px;
+		width: 640px;
 		white-space: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
@@ -582,7 +583,7 @@ button:focus {
 		}
 		
 		img {
-			width: 480px;
+			width: 640px;
 			margin: auto;
 			display: inline-block;
 			vertical-align: middle;
@@ -751,6 +752,10 @@ ul.moyn-accordion {
 			}
 		}
 	}
+}
+
+.moyn-lightbox-container {
+	visibility: hidden;
 }
 
 

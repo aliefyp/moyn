@@ -45,6 +45,8 @@ class Manage_content extends MY_Controller {
 				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
 			$this->session->unset_userdata('upload');
 		}
+		$this->add_css('lightbox/css/lightbox.css');
+		$this->add_js('lightbox/js/lightbox.js');
 
 		$this->display('admin/list_content', $data);
 	}
@@ -220,6 +222,9 @@ class Manage_content extends MY_Controller {
 		$std_data = $this->standarize_data($result, $type_proj);
 		$data = array_merge($data, $std_data);
 		$this->add_datatable();
+		
+		$this->add_css('lightbox/css/lightbox.css');
+		$this->add_css('lightbox/js/lightbox.js');
 
 		$this->display('admin/list_content', $data);
 	}
@@ -249,6 +254,13 @@ class Manage_content extends MY_Controller {
 				$data['project'] = 3;
 				$table 			 = 'img_unbuilt_project';
 				$id_name 		 = 'id_up';
+				break;
+
+			case '4':
+				$data['_title']  = 'Manage My Shop';
+				$data['project'] = 4;
+				$table 			 = 'img_shop_item';
+				$id_name 		 = 'id_item';
 				break;
 			
 			default:
