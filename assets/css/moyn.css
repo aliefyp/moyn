@@ -193,7 +193,8 @@ button:focus {
     animation: fadeIn 1s ease-in-out forwards; }
 
 .moyn-founders {
-  position: relative; }
+  position: relative;
+  padding-top: 32px; }
   .moyn-founders--left {
     float: left;
     width: 50%;
@@ -420,7 +421,7 @@ button:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 480px;
+    width: 640px;
     height: 24px; }
     .popup .navigation__next {
       content: ">";
@@ -443,14 +444,14 @@ button:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 480px;
+    width: 640px;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden; }
     .popup .carousel::-webkit-scrollbar {
       display: none; }
     .popup .carousel img {
-      width: 480px;
+      width: 640px;
       margin: auto;
       display: inline-block;
       vertical-align: middle;
@@ -555,6 +556,9 @@ ul.moyn-accordion {
         ul.moyn-accordion li ul li .inner a {
           display: block;
           margin-bottom: 8px; }
+
+.moyn-lightbox-container {
+  visibility: hidden; }
 
 .my-16 {
   margin: 16px 0; }

@@ -7,13 +7,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/moyn.css">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/lightbox/css/lightbox.css">
 		<link rel="icon" href="<?php echo base_url(); ?>assets/img/logo/favicon.png" type="image/gif" sizes="16x16">
 	</head>
 
 	<body>
 		<div class="container moyn-container relative">
 			<div class="moyn-header">
-				<img src="http://i65.tinypic.com/2rny2pu.png" alt="moyn-logo">
+				<img src="<?php echo base_url(); ?>assets/img/logo/moyn.png" alt="moyn-logo">
 				<div class="moyn-hamburger-holder show-sm">
 					<div class="moyn-hamburger" id="hamburger-menu">
 						<span></span>
@@ -29,9 +30,9 @@
 					<a href="<?php echo base_url(); ?>profile">PROFILE</a>
 					<div class="moyn-content">
 						<div id="content-profile">
-							<p class="mb-16">Established in 2018, moyn is an architectural design studio based on the countryside of central Java.<br />
-							the balance between spaces inside and outside, environment and architecture, human and architecture.<br />
-							moyn architecture is seeking for equilibrium, a pursuit of idea to stand between them</p>
+							<p class="mb-16">Established in 2018, moyn is an architectural design studio based on the countryside of central Java.
+							the balance between spaces inside and outside, environment and architecture, human and architecture.
+							moyn architecture is seeking for equilibrium, a pursuit of idea to stand between them
 							<div class="moyn-founders">
 								<div class="moyn-founders--left">
 									<img src="<?php echo base_url(); ?>assets/img/founders/left-0.png" alt="moyn-founders">
@@ -142,35 +143,13 @@
 			<!-- project control (mobile) -->
 			<div class="moyn-control__holder show-sm <?php if($this->uri->segment(1) != "projects"){echo 'hide';}?>">
 				<div class="moyn-control">
-					<div class="moyn-control__item" id="control-unbuilt">&ndash;</div>
-					<div class="moyn-control__item active" id="control-studio">0</div>
-					<div class="moyn-control__item" id="control-realized">+</div>
+					<div class="moyn-control__item" id="nav-unbuilt-mobile">&ndash;</div>
+					<div class="moyn-control__item active" id="nav-studio-mobile">0</div>
+					<div class="moyn-control__item" id="nav-realized-mobile">+</div>
 				</div>
 			</div>
 
-			<!-- carousel -->
-			<div class="popup" id="popup-slider">
-				<div class="overlay">
-					<div class="carousel" id="carousel">
-						<img src="http://placehold.it/800x800" alt="">
-						<img src="http://placehold.it/700x800" alt="">
-						<img src="http://placehold.it/800x900" alt="">
-						<img src="http://placehold.it/800x800" alt="">
-					</div>
-					<div class="navigation" id="carousel-nav">
-						<div class="navigation__prev" id="carousel-nav-prev"><</div>
-						<div class="navigation__next" id="carousel-nav-next">></div>
-					</div>
-					<div class="moyn-hamburger-holder">
-						<div class="moyn-hamburger open" id="carousel-close">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- carousel -->
+			<div class="moyn-lightbox-container"></div>
 			
 		</div>
 
@@ -192,5 +171,7 @@
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/underscore.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/moyn.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/moyn.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/lightbox/js/lightbox.js"></script>
 	</body>
 </html>
