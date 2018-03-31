@@ -45,6 +45,8 @@ class Manage_content extends MY_Controller {
 				$data['notif'] = array('type' => 'error', 'message' => 'Data gagal disimpan');
 			$this->session->unset_userdata('upload');
 		}
+		$this->add_css('lightbox/css/lightbox.css');
+		$this->add_css('lightbox/js/lightbox.js');
 
 		$this->display('admin/list_content', $data);
 	}
@@ -220,6 +222,9 @@ class Manage_content extends MY_Controller {
 		$std_data = $this->standarize_data($result, $type_proj);
 		$data = array_merge($data, $std_data);
 		$this->add_datatable();
+		
+		$this->add_css('lightbox/css/lightbox.css');
+		$this->add_css('lightbox/js/lightbox.js');
 
 		$this->display('admin/list_content', $data);
 	}

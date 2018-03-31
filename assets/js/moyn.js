@@ -183,7 +183,6 @@ const displaySlider = function(table, proj_id, table_id) {
 			table_id: table_id,
 		},
 		success: function(result){
-			console.log(result)
 			var json = $.parseJSON(result)
 			var arrThumb = []
 			$.each(json, function(index, item) {
