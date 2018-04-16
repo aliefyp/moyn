@@ -254,6 +254,10 @@ function isMobile() {
 			case "projects":
 				$("#content-sm").append($("<div class='c-white mb-16'>PROJECT</div>")).fadeIn()
 				$("#content-sm").append($("#gallery-project")[0]).fadeIn()
+				$("#content-sm").append($("#gallery-project-next")[0]).fadeIn()
+				$("#content-sm").append($("#gallery-project-prev")[0]).fadeIn()
+				$("#gallery-project-next").css({"right": "0"})
+				$("#gallery-project-prev").css({"left": "0"})
 				$("#gallery-project").css({
 					"float"  : "none",
 					"margin" : "auto",
