@@ -35,7 +35,7 @@
 				</a>
 				
 				<a class="brand" href="#">
-					Universal Quotient				
+					MOYN
 				</a>		
 				
 				<div class="nav-collapse">
