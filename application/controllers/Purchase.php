@@ -29,9 +29,9 @@ class Purchase extends CI_Controller {
 		$res 			= $this->content_model->save_order($fullname, $email, $quantity, $phone, $address, $message, $id_item);	
 		$product 	= $this->content_model->get_product($id_item);	
 		
-		if ($res == true) {
+		/*if ($res == true) {
 			$this->send_email($fullname, $email, $quantity, $phone, $address, $message, $product);
-		}
+		}*/
 		
 		$data['title'] = 'moyn | PURCHASE';		
 		$data['res'] 			= $res;

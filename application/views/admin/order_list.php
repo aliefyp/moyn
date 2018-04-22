@@ -18,6 +18,7 @@
                   <th> Item </th>
                   <th> Quantity </th>
                   <th> Order Time </th>
+                  <th> Confirmation </th>
                 </tr>
               </thead>
               <tbody>
@@ -33,6 +34,14 @@
                         <td><?php echo $value['item_order'];?></td>
                         <td><?php echo $value['qty_order'];?></td>
                         <td><?php echo $value['created_at'];?></td>
+                        <td>
+                          <?php if($value['confirmed']){ ?>
+                            <a href="#" class="btn btn-small btn-success">Confirmed</a>
+                          <?php }else{ ?>
+                            <a href="<?php echo base_url().'order/confirm_order?order_id='.$value['id_order']?>" class="btn btn-small btn-success" onclick="return confirm('Konfirmasi order ini?')"><i class="icon-ok"></i></a>
+                          <?php } ?>
+                          
+                        </td>
                       </tr>
                     <?php }
                   }

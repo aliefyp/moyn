@@ -180,4 +180,18 @@ class Content_model extends CI_Model {
 		$res = $this->db->get()->result_array();
 		return empty($res)? FALSE : $res;
 	}
+
+	public function confirm_order($order_id){
+		$arr = array('confirmed' => "1");
+		$this->db->set($arr);
+		$this->db->where("id_order", $order_id);
+		$res = $this->db->update('order');
+
+		if($res){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }
